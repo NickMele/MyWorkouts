@@ -39,6 +39,7 @@
 
 		&.current {
 			border-left-color: $blue;
+			box-shadow: 0 0 1rem 0 $base-shadow-color;
 		}
 
 		.weekday,
@@ -63,11 +64,14 @@
 			top: 0;
 			left: 0;
 			font-size: modular-scale(3.5, $base-size);
+			z-index: -1;
 
 			&.completed {
+				background: rgba(92, 184, 92,.1);
 				color: $green;
 			}
 			&.skipped {
+				background: rgba(210, 50, 45,.1);
 				color: $red;
 			}
 		}
