@@ -17,3 +17,59 @@
 		}
 	}
 }
+
+.weekdays-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid $link-list-border-color;
+
+	li {
+		padding: modular-scale(0, $base-size);
+		margin: 0;
+		position: relative;
+		box-sizing: border-box;
+		border-left: .5rem solid lighten($blue, 30%);
+		border-bottom: 1px solid $link-list-border-color;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-content: space-between;
+		height: modular-scale(4.5, $base-size);
+
+		&.current {
+			border-left-color: $blue;
+		}
+
+		.weekday,
+		.date {
+			flex: 1 50%;
+			color: $light-font-color;
+		}
+		.date {
+			text-align: right;
+		}
+		.routine {
+			flex: 1 50%;
+		}
+		.status-container {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			top: 0;
+			left: 0;
+			font-size: modular-scale(3.5, $base-size);
+
+			&.completed {
+				color: $green;
+			}
+			&.skipped {
+				color: $red;
+			}
+		}
+	}
+}
