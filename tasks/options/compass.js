@@ -11,7 +11,8 @@ module.exports = {
     httpGeneratedImagesPath: "/assets/images/generated",
     httpFontsPath: "/assets/fonts",
     relativeAssets: false,
-    debugInfo: true
+    debugInfo: true,
+    require: 'modular-scale'
   },
   compile: {}
 };

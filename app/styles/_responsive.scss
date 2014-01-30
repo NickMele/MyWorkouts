@@ -1,0 +1,11 @@
+@media all and (max-width: 25em) {
+	html {
+		font-size: $base-font-size-mobile;
+	}
+}
+
+@media all and (max-width: 62em) {
+	html {
+		font-size: $base-font-size-tablet;
+	}
+}
