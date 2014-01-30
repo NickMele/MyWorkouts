@@ -6,6 +6,8 @@ $base-font-size-mobile: 75%;
 $base-size: 1.3rem;
 $base-font-color: rgba(50,50,50,1);
 $base-link-color: rgba(50,50,150,1);
+$base-border-color: rgba(180,180,180,.75);
+$base-shadow-color: rgba(0,0,0,.1);
 
 $light-font-color: rgba(125,125,125,1);
 
@@ -27,6 +29,6 @@ $button-blue: $blue;
 $button-red: $red;
 
 $input-background-color: rgba(255,255,255,1);
-$input-border-color: rgba(180,180,180,.75);
+$input-border-color: $base-border-color;
 
-$link-list-border-color: rgba(180,180,180,.75);
+$link-list-border-color: $base-border-color;

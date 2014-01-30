@@ -1,0 +1,52 @@
+.header {
+	display: flex;
+	padding: modular-scale(0, $base-size);
+	border-bottom: 1px solid $base-border-color;
+	box-shadow: 0 0 1rem 0 $base-shadow-color;
+
+	&.menu-open,
+	&:hover {
+		.name {
+			flex: 0;
+		}
+		.menu {
+			flex: 1;
+		}
+		.menu-icon {
+			transform: rotateY(180deg);
+		}
+	}
+
+	.name {
+		flex: 1;
+		overflow: hidden;
+		white-space: nowrap;
+		box-sizing: border-box;
+		transition: all .2s ease-in;
+	}
+
+	.menu-icon {
+		flex: none;
+		transition: all .1s linear;
+	}
+
+	.menu {
+		flex: 0;
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .2s linear;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			display: flex;
+			li {
+				display: block;
+				flex: 1;
+				text-align: center;
+			}
+		}
+	}
+
+}
