@@ -2,7 +2,10 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	border-top: 1px solid $link-list-border-color;
+
+	&.border-top {
+		border-top: 1px solid $link-list-border-color;
+	}
 
 	li {
 		padding: 0;
@@ -22,7 +25,10 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	border-top: 1px solid $link-list-border-color;
+
+	&.border-top {
+		border-top: 1px solid $link-list-border-color;
+	}
 
 	li {
 		padding: modular-scale(0, $base-size);
@@ -51,7 +57,16 @@
 			text-align: right;
 		}
 		.routine {
-			flex: 1 50%;
+			flex: 1 60%;
+			font-size: 2rem;
+			font-weight: 300;
+			line-height: 1;
+			align-self: flex-end;
+		}
+		.workouts {
+			flex: 1 40%;
+			align-self: flex-end;
+			text-align: right;
 		}
 		.status-container {
 			position: absolute;
@@ -63,7 +78,8 @@
 			box-sizing: border-box;
 			top: 0;
 			left: 0;
-			font-size: modular-scale(3.5, $base-size);
+			font-size: modular-scale(3, $base-size);
+			line-height: 1;
 			z-index: -1;
 
 			&.completed {

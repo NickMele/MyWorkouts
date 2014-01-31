@@ -1,1 +1,12 @@
+<div {{bind-attr class=":header menuOpen"}}>
+	<div class="name">Nick Mele</div>
+	<a class="menu-icon" href="" {{action 'toggleMenu'}}>&#8647;</a>
+	<div class="menu">
+		<ul>
+			<li {{action "toggleMenu"}}>{{#link-to 'schedule'}}Schedule{{/link-to}}</li>
+			<li {{action "toggleMenu"}}>{{!#link-to 'routines'}}Routines{{!/link-to}}</li>
+		</ul>
+	</div>
+</div>
+
 {{outlet}}
