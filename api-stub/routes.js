@@ -16,43 +16,43 @@ module.exports = function(server) {
 					    	{
 					    		"id": 0,
 					    		"day": 0,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 1,
 					    		"day": 1,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 2,
 					    		"day": 2,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 3,
 					    		"day": 3,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 4,
 					    		"day": 4,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 5,
 					    		"day": 5,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	},
 					    	{
 					    		"id": 6,
 					    		"day": 6,
-					    		"routines": [0],
+					    		"routines": 1,
 					    		"workouts": 5
 					    	}
 					    ],
@@ -61,7 +61,7 @@ module.exports = function(server) {
 					    	{
 					    		"id": 0,
 					    		"name": "Workout",
-					    		"routines": [0]
+					    		"workouts": [0]
 					    	}
 					    ],
 
