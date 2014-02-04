@@ -8,5 +8,7 @@ export default DS.Model.extend({
   "totalRoutines": attr(),
   "totalWorkouts": attr(),
   "routines": hasMany('routine'),
-  "workouts": hasMany('workout')
+  "workouts": hasMany('workout'),
+  "status": attr(),
+  "currentDay": attr()
 });

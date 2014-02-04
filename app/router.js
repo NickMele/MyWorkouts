@@ -4,6 +4,7 @@ Router.map(function() {
 	this.route('styles');
 
 	this.route('week');
+  this.route('day', { path: '/day/:day_id' })
 });
 
 export default Router;
