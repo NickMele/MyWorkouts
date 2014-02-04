@@ -13,7 +13,6 @@ module.exports = function(server) {
 					  	"endDate": new Date('2014-2-10'),
 					  	"days": [0, 1, 2, 3, 4, 5, 6]
 					  },
-					  
 					  "days": [
 					  	{
 					  		"id": 0,
