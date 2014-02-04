@@ -1,0 +1,13 @@
+<ul class="weekdays-list">
+	{{#each day in days}}
+		<li>
+			<div class="day">{{day.dayOfWeek}}</div>
+			<div class="date">Jan 29</div>
+			<div class="routine">{{day.totalRoutines}} Routines</div>
+			<div class="workouts">{{days.totalWorkouts}} Workouts</div>
+			<div class="status-container skipped">
+				<span>&cross;</span>
+			</div>
+		</li>
+	{{/each}}
+</ul>

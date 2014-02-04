@@ -3,7 +3,7 @@ var Router = Ember.Router.extend(); // ensure we don't share routes between all 
 Router.map(function() {
 	this.route('styles');
 
-	this.route('schedule');
+	this.route('week');
 });
 
 export default Router;

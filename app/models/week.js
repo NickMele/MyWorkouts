@@ -3,6 +3,7 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	day: attr(),
-	routines: hasMany('routine')
+	startDate: attr('date'),
+  endDate: attr('date'),
+  days: hasMany('day')
 });
