@@ -1,11 +1,17 @@
 <ul class="weekdays-list">
-	{{#each day in days}}
-		<li {{bind-attr class="day.status"}}>
-			{{#link-to "day" day}}
+	{{#each day in days itemController="day"}}
+		<li>
+			{{#link-to "day" day.dateForUrl class=day.status}}
 				<div class="day">{{format-date day.date format="dddd"}}</div>
 				<div class="date">{{format-date day.date format="MMM D"}}</div>
 				<div class="routine">{{day.totalRoutines}} Routines</div>
-				<div class="workouts">{{day.totalWorkouts}} Workouts</div>
+				<div class="workouts">
+					{{#if day.totalWorkouts}}
+						{{day.totalWorkouts}} Workouts
+					{{else}}
+						Rest Day
+					{{/if}}
+				</div>
 				<div {{bind-attr class=":status-container day.status"}}>
 					<span>{{get-status-icon day.status}}</span>
 				</div>

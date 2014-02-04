@@ -6,6 +6,7 @@ module.exports = function(server) {
 
 		// Return fixture data for '/api/schedules/:id'
 		server.get('/weeks/:id', function(req, res) {
+			console.log(req.params);
 			var week = {
 					  "weeks": {
 					  	"id": 1,
@@ -40,10 +41,10 @@ module.exports = function(server) {
 					  		"id": 2,
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
-					  		"totalRoutines": 1,
-					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"totalRoutines": 0,
+					  		"totalWorkouts": 0,
+					  		"routines": [],
+					  		"workouts": [],
 					  		"status": "current",
 					  		"currentDay": true
 					  	},
@@ -114,6 +115,44 @@ module.exports = function(server) {
 					};
 
 			res.send(week);
+		});
+
+		server.get('/days/:id', function(req, res) {
+			console.log(req.params);
+			var day = {
+					  "days": {
+				  		"id": 0,
+				  		"date": new Date('2014-2-3'),
+				  		"dayOfWeek": 0,
+				  		"totalRoutines": 1,
+				  		"totalWorkouts": 2,
+				  		"routines": [0],
+				  		"workouts": [0, 1],
+				  		"status": "completed",
+				  		"currentDay": false
+				  	},
+					  
+					  "routines": [
+					  	{
+					  		"id": 0,
+					  		"name": "Test Routine",
+					  		"workouts": [0, 1]
+					  	}
+					  ],
+					  
+					  "workouts": [
+					  	{
+					  		"id": 0,
+					  		"name": "Workout 1"
+					  	},
+					  	{
+					  		"id": 0,
+					  		"name": "Workout 2"
+					  	}
+					  ]
+					};
+
+			res.send(day);
 		});
 
 	});

@@ -33,6 +33,7 @@
 	li {
 		margin: 0;
 		padding: 0;
+		position: relative;
 		
 		> a {
 			padding: modular-scale(0, $base-size);
@@ -48,58 +49,63 @@
 			justify-content: space-between;
 			align-content: space-between;
 			height: modular-scale(4.5, $base-size);
-		}
-
-		&.current {
-			border-left-color: $blue;
-			box-shadow: 0 0 1rem 0 $base-shadow-color;
-		}
-		&.upcoming {
-			opacity: .7;
-		}
-		&.completed {
-			.status-container {
-				background: rgba(92, 184, 92,.1);
-				color: $green;				
+			
+			&.current {
+				border-left-color: $gray;
+				margin-top: -1px;
 			}
-		}
-		&.skipped {
-			.status-container {
-				background: rgba(210, 50, 45,.1);
-				color: $red;
+			&.upcoming {
+				opacity: .5;
 			}
-		}
+			&.completed {
+				.status-container {
+					background: rgba(92, 184, 92,.1);
+					color: $green;				
+				}
+			}
+			&.skipped {
+				.status-container {
+					background: rgba(210, 50, 45,.1);
+					color: $red;
+				}
+			}
+			&:active {
+				box-shadow: 0 0 1rem 0 $base-shadow-color;
+				opacity: 1;
+				border-left: .5rem solid $blue;
+			}
 
-		.weekday,
-		.date {
-			flex: 1 50%;
-			color: $light-font-color;
-		}
-		.date {
-			text-align: right;
-		}
-		.routine {
-			flex: 1 60%;
-			align-self: flex-end;
-		}
-		.workouts {
-			flex: 1 40%;
-			align-self: flex-end;
-			text-align: right;
-		}
-		.status-container {
-			position: absolute;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-			top: 0;
-			left: 0;
-			font-size: modular-scale(3, $base-size);
-			line-height: 1;
-			z-index: -1;
+			.day,
+			.date {
+				flex: 1 50%;
+				color: $light-font-color;
+			}
+			.date {
+				text-align: right;
+			}
+			.routine {
+				flex: 1 60%;
+				align-self: flex-end;
+			}
+			.workouts {
+				flex: 1 40%;
+				align-self: flex-end;
+				text-align: right;
+			}
+			.status-container {
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				top: 0;
+				left: 0;
+				font-size: modular-scale(3, $base-size);
+				line-height: 1;
+				z-index: -1;
+			}
 		}
 	}
 }
