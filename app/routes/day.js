@@ -4,7 +4,7 @@ export default Ember.Route.extend({
     this._super(controller, model);
     
     var title = moment(model.get('startDate')).format('dddd MMM Do');
-    this.controllerFor('application').set('title', title)
+    this.controllerFor('header').set('title', title)
   },
   
   model: function(params) {

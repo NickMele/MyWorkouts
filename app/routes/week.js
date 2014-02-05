@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     
     var title = 'Week of ',
         formattedDate = moment(model.get('startDate')).format('M/D');
-    this.controllerFor('application').set('title', title + formattedDate)
+    this.controllerFor('header').set('title', title + formattedDate)
   },
   
 	model: function(params) {
