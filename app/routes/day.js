@@ -1,5 +1,13 @@
 export default Ember.Route.extend({
-	model: function(params) {
+	
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    
+    var title = moment(model.get('startDate')).format('dddd MMM Do');
+    this.controllerFor('application').set('title', title)
+  },
+  
+  model: function(params) {
 		return this.store.find('day', params.date);
 	}
 });

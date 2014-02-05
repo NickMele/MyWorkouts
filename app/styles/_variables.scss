@@ -1,3 +1,8 @@
+$gray: rgba(150,150,150,.95);
+$green: rgba(92, 184, 92,.95);
+$blue: rgba(66, 139, 202,.95);
+$red: rgba(210, 50, 45,.95);
+
 $application-background: rgba(253,253,253,1);
 
 $base-font-size: 62.5%;
@@ -5,16 +10,11 @@ $base-font-size-tablet: 70%;
 $base-font-size-mobile: 75%;
 $base-size: 1.3rem;
 $base-font-color: rgba(50,50,50,1);
-$base-link-color: rgba(50,50,150,1);
+$base-link-color: $blue;
 $base-border-color: rgba(180,180,180,.75);
 $base-shadow-color: rgba(0,0,0,.1);
 
 $light-font-color: rgba(125,125,125,1);
-
-$gray: rgba(150,150,150,.95);
-$green: rgba(92, 184, 92,.95);
-$blue: rgba(66, 139, 202,.95);
-$red: rgba(210, 50, 45,.95);
 
 $shadow-color: rgba(0,0,0,.5);
 $shadow-blur: modular-scale(1, $base-size);

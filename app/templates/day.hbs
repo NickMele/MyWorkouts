@@ -1,1 +1,13 @@
-{{date}}
+{{#each routine in routines}}
+  <h3 class="padded">{{routine.name}}</h3>
+  <ul class="link-list border-top">
+    {{#each workout in routine.workouts}}
+      <li><a href="#">{{workout.name}}</a></li>
+    {{/each}}
+  </ul>
+{{/each}}
+
+<section class="form-actions">
+  <button class="button button-green">Completed!</button>
+  <button class="button button-red">Skip :(</button>
+</section>

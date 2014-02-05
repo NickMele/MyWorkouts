@@ -1,3 +1,18 @@
+.wrapper {
+	&.menu-open {
+		.menu {
+			right: 0;
+			box-shadow: 0 0 1rem 0 $base-shadow-color;
+			border-left: 1px solid $base-border-color;
+		}
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+	}	
+}
+
 .header {
 	display: flex;
 	padding: modular-scale(0, $base-size);
@@ -5,19 +20,7 @@
 	box-shadow: 0 0 1rem 0 $base-shadow-color;
 	align-items: center;
 
-	&.menu-open {
-		.name {
-			flex: 0;
-		}
-		.menu {
-			flex: 1;
-		}
-		.menu-icon {
-			transform: rotateY(180deg);
-		}
-	}
-
-	.name {
+	.title {
 		flex: 1;
 		overflow: hidden;
 		white-space: nowrap;
@@ -31,26 +34,30 @@
 		flex: none;
 		transition: all .1s linear;
 		text-decoration: none;
+		font-size: modular-scale(1, $base-size);
 		color: $base-font-color;
+		-webkit-appearance: none;
 	}
 
 	.menu {
-		flex: 0;
-		overflow: hidden;
+		position: fixed;
+		top: 0;
+		right: -100%;
 		box-sizing: border-box;
-		transition: all .2s linear;
-
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
+		transition: all .2s ease-out;
+		-webkit-backface-visibility: hidden;
+		width: 80%;
+		height: 100%;
+		z-index: 2;
+		background: rgba(255,255,255,.95);
+		
+		.actions {
 			display: flex;
-			li {
-				display: block;
-				flex: 1;
-				text-align: center;
-				white-space: nowrap;
-			}
+			padding: modular-scale(0, $base-size);
+			border-bottom: 1px solid $base-border-color;
+			box-shadow: 0 0 1rem 0 $base-shadow-color;
+			justify-content: space-between;
+			font-size: modular-scale(1, $base-size);			
 		}
 	}
 

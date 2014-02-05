@@ -21,8 +21,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "completed",
 					  		"currentDay": false
 					  	},
@@ -32,8 +32,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "skipped",
 					  		"currentDay": false
 					  	},
@@ -54,8 +54,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "upcoming",
 					  		"currentDay": false
 					  	},
@@ -65,8 +65,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "upcoming",
 					  		"currentDay": false
 					  	},
@@ -76,8 +76,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "upcoming",
 					  		"currentDay": false
 					  	},
@@ -87,8 +87,8 @@ module.exports = function(server) {
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
 					  		"totalWorkouts": 2,
-					  		"routines": [0],
-					  		"workouts": [0, 1],
+					  		"routines": [1],
+					  		"workouts": [1, 2],
 					  		"status": "upcoming",
 					  		"currentDay": false
 					  	}
@@ -126,27 +126,27 @@ module.exports = function(server) {
 				  		"dayOfWeek": 0,
 				  		"totalRoutines": 1,
 				  		"totalWorkouts": 2,
-				  		"routines": [0],
-				  		"workouts": [0, 1],
+				  		"routines": [1],
+				  		"workouts": [1, 2],
 				  		"status": "completed",
 				  		"currentDay": false
 				  	},
 					  
 					  "routines": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Test Routine",
-					  		"workouts": [0, 1]
+					  		"workouts": [1, 2]
 					  	}
 					  ],
 					  
 					  "workouts": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Workout 1"
 					  	},
 					  	{
-					  		"id": 0,
+					  		"id": 2,
 					  		"name": "Workout 2"
 					  	}
 					  ]
