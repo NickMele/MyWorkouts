@@ -3,7 +3,7 @@
   <ul class="day-list border-top">
     {{#each workout in routine.workouts}}
       <li>
-        <a href="#">{{workout.name}}</a>
+        {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
       </li>
     {{/each}}
   </ul>

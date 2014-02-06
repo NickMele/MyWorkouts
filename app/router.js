@@ -8,6 +8,9 @@ Router.map(function() {
     
   // go to a specific day
   this.route('day', { path: '/day/:date' });
+  
+  // go to a specific workout
+  this.route('workout', { path: '/workout/:workout_id' });
 });
 
 export default Router;

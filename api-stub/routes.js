@@ -154,6 +154,18 @@ module.exports = function(server) {
 
 			res.send(day);
 		});
+		
+		server.get('/workouts/:id', function(req, res) {
+			console.log(req.params);
+			var workout = {
+					  "workouts": {
+				  		"id": 1,
+				  		"name": "Workout 1"
+				  	}
+					};
+
+			res.send(workout);
+		});
 
 	});
 
