@@ -13,5 +13,8 @@
   },
   "resolutions": {
     "ember": "~1.4.0-beta.2"
+  },
+  "devDependencies": {
+    "ember-animated-outlet": "~1.0.0-beta"
   }
 }

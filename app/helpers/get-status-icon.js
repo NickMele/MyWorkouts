@@ -4,9 +4,9 @@
 
 export default Ember.Handlebars.makeBoundHelper(function(status) {
   if (status === "completed") {
-    return new Handlebars.SafeString("&#10004");
+    return new Ember.Handlebars.SafeString("&#10004");
   } else if (status === "skipped") {
-    return new Handlebars.SafeString("&cross;");
+    return new Ember.Handlebars.SafeString("&cross;");
   } else {
     return "";
   }

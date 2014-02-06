@@ -1,7 +1,7 @@
 <ul class="week-list">
 	{{#each day in days itemController="day"}}
 		<li>
-			{{#link-to "day" day.dateForUrl class=day.status}}
+			{{#link-to-animated "day" day.dateForUrl class=day.status animations="main:fade"}}
 				<div class="day">{{format-date day.date format="dddd"}}</div>
 				<div class="date">{{format-date day.date format="MMM D"}}</div>
 				<div class="routine">{{day.totalRoutines}} Routines</div>
@@ -15,7 +15,7 @@
 				<div {{bind-attr class=":status-container day.status"}}>
 					<span>{{get-status-icon day.status}}</span>
 				</div>
-			{{/link-to}}
+			{{/link-to-animated}}
 		</li>
 	{{/each}}
 </ul>

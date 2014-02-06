@@ -8,6 +8,6 @@ export default Ember.Handlebars.makeBoundHelper(function(context, block) {
     return moment(context).format(f);
   } else {
     return context;   //  moment plugin not available. return data as is.
-  };
+  }
 });
 
