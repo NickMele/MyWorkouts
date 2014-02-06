@@ -1,8 +1,10 @@
 {{#each routine in routines}}
   <h3 class="padded">{{routine.name}}</h3>
-  <ul class="link-list border-top">
+  <ul class="day-list border-top">
     {{#each workout in routine.workouts}}
-      <li><a href="#">{{workout.name}}</a></li>
+      <li>
+        <a href="#">{{workout.name}}</a>
+      </li>
     {{/each}}
   </ul>
 {{/each}}

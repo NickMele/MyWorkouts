@@ -21,7 +21,7 @@
 	}
 }
 
-.weekdays-list {
+.week-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -108,4 +108,8 @@
 			}
 		}
 	}
+}
+
+.day-list {
+	@extend .link-list
 }
