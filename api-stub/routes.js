@@ -8,13 +8,13 @@ module.exports = function(server) {
 		server.get('/weeks', function(req, res) {
 			console.log(req.params);
 			var weeks = {
-					  "weeks": {
+					  "weeks": [{
 					  	"id": 1,
 					  	"startDate": new Date('2014-2-3'),
 					  	"short_date": '2014-2-3',
 					  	"endDate": new Date('2014-2-9'),
 					  	"days": [0, 1, 2, 3, 4, 5, 6]
-					  },
+					  }],
 					  "days": [
 					  	{
 					  		"id": 0,
@@ -122,13 +122,13 @@ module.exports = function(server) {
 		server.get('/weeks/:id', function(req, res) {
 			console.log(req.params);
 			var week = {
-					  "weeks": [{
+					  "weeks": {
 					  	"id": 1,
 					  	"startDate": new Date('2014-2-3'),
 					  	"short_date": '2014-2-3',
 					  	"endDate": new Date('2014-2-9'),
 					  	"days": [0, 1, 2, 3, 4, 5, 6]
-					  }],
+					  },
 					  "days": [
 					  	{
 					  		"id": 0,

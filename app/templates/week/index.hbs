@@ -1,7 +1,7 @@
 <ul class="week-list">
-  {{#each day in model.days itemController="day"}}
+  {{#each day in model.days itemController="week.day"}}
     <li>
-      {{#link-to "week.day" day.dateForUrl class=day.status}}
+      {{#link-to "week.day" day class=day.status}}
         <div class="day">{{format-date day.date format="dddd"}}</div>
         <div class="date">{{format-date day.date format="MMM D"}}</div>
         <div class="routine">{{day.totalRoutines}} Routines</div>

@@ -8,7 +8,6 @@ export default Ember.Route.extend({
   // },
   
 	model: function(params) {
-    // return this.modelFor('week');
-    return this.store.find('week', params.week_id);
+    return this.modelFor('week');
 	}
 });
