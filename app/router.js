@@ -7,7 +7,7 @@ Router.map(function() {
   this.resource('weeks', function() {
     this.resource('week', { path: '/:week_id' }, function() {
       // go to a specific day
-      this.route('day', { path: '/day/:day_id' });
+      this.route('day', { path: '/:day_id' });
     });
   });
     

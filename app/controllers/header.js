@@ -1,5 +1,8 @@
 export default Em.ObjectController.extend({
   
-  title: 'My Workouts'
+  title: 'My Workouts',
+  currentWeek: function() {
+    return moment().isoWeek();
+  }.property()
   
 });
