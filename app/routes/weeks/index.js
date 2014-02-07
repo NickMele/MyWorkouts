@@ -7,7 +7,6 @@ export default Ember.Route.extend({
   },
   
   model: function() {
-    console.log('getting weeks');
     return this.store.find('week');
   }
   

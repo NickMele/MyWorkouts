@@ -3,8 +3,8 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	startDate: attr('date'),
+  // slug: attr(),
+  startDate: attr('date'),
   endDate: attr('date'),
-  short_date: attr(),
   days: hasMany('day')
 });

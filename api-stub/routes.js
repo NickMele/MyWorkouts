@@ -10,14 +10,22 @@ module.exports = function(server) {
 			var weeks = {
 					  "weeks": [{
 					  	"id": 1,
-					  	"startDate": new Date('2014-2-3'),
-					  	"short_date": '2014-2-3',
-					  	"endDate": new Date('2014-2-9'),
-					  	"days": [0, 1, 2, 3, 4, 5, 6]
+					  	"slug": '1',
+					  	"startDate": new Date('2014-1-1'),
+					  	"endDate": new Date('2014-1-7'),
+					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+					  },
+					  {
+					  	"id": 1,
+					  	"slug": '2',
+					  	"startDate": new Date('2014-1-8'),
+					  	"endDate": new Date('2014-1-14'),
+					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 					  }],
 					  "days": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
+					  		"slug": 'monday',
 					  		"date": new Date('2014-2-3'),
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
@@ -28,7 +36,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 1,
+					  		"id": 2,
+					  		"slug": 'tuesday',
 					  		"date": new Date('2014-2-4'),
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
@@ -39,7 +48,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 2,
+					  		"id": 3,
+					  		"slug": 'wednesday',
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
 					  		"totalRoutines": 0,
@@ -50,7 +60,8 @@ module.exports = function(server) {
 					  		"currentDay": true
 					  	},
 					  	{
-					  		"id": 3,
+					  		"id": 4,
+					  		"slug": 'thursday',
 					  		"date": new Date('2014-2-6'),
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
@@ -61,7 +72,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 4,
+					  		"id": 5,
+					  		"slug": 'friday',
 					  		"date": new Date('2014-2-7'),
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
@@ -72,7 +84,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 5,
+					  		"id": 6,
+					  		"slug": 'saturday',
 					  		"date": new Date('2014-2-8'),
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
@@ -83,7 +96,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 6,
+					  		"id": 7,
+					  		"slug": 'sunday',
 					  		"date": new Date('2014-2-9'),
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
@@ -97,19 +111,19 @@ module.exports = function(server) {
 					  
 					  "routines": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Test Routine",
-					  		"workouts": [0, 1]
+					  		"workouts": [1, 2]
 					  	}
 					  ],
 					  
 					  "workouts": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Workout 1"
 					  	},
 					  	{
-					  		"id": 0,
+					  		"id": 2,
 					  		"name": "Workout 2"
 					  	}
 					  ]
@@ -124,14 +138,15 @@ module.exports = function(server) {
 			var week = {
 					  "weeks": {
 					  	"id": 1,
+					  	"slug": '1',
 					  	"startDate": new Date('2014-2-3'),
-					  	"short_date": '2014-2-3',
 					  	"endDate": new Date('2014-2-9'),
-					  	"days": [0, 1, 2, 3, 4, 5, 6]
+					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 					  },
 					  "days": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
+					  		"slug": 'monday',
 					  		"date": new Date('2014-2-3'),
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
@@ -142,7 +157,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 1,
+					  		"id": 2,
+					  		"slug": 'tuesday',
 					  		"date": new Date('2014-2-4'),
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
@@ -153,7 +169,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 2,
+					  		"id": 3,
+					  		"slug": 'wednesday',
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
 					  		"totalRoutines": 0,
@@ -164,7 +181,8 @@ module.exports = function(server) {
 					  		"currentDay": true
 					  	},
 					  	{
-					  		"id": 3,
+					  		"id": 4,
+					  		"slug": 'thursday',
 					  		"date": new Date('2014-2-6'),
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
@@ -175,7 +193,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 4,
+					  		"id": 5,
+					  		"slug": 'friday',
 					  		"date": new Date('2014-2-7'),
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
@@ -186,7 +205,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 5,
+					  		"id": 6,
+					  		"slug": 'saturday',
 					  		"date": new Date('2014-2-8'),
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
@@ -197,7 +217,8 @@ module.exports = function(server) {
 					  		"currentDay": false
 					  	},
 					  	{
-					  		"id": 6,
+					  		"id": 7,
+					  		"slug": 'sunday',
 					  		"date": new Date('2014-2-9'),
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
@@ -211,19 +232,19 @@ module.exports = function(server) {
 					  
 					  "routines": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Test Routine",
-					  		"workouts": [0, 1]
+					  		"workouts": [1, 2]
 					  	}
 					  ],
 					  
 					  "workouts": [
 					  	{
-					  		"id": 0,
+					  		"id": 1,
 					  		"name": "Workout 1"
 					  	},
 					  	{
-					  		"id": 0,
+					  		"id": 2,
 					  		"name": "Workout 2"
 					  	}
 					  ]
@@ -237,6 +258,7 @@ module.exports = function(server) {
 			var day = {
 					  "days": {
 				  		"id": 0,
+				  		"slug": "monday",
 				  		"date": new Date(),
 				  		"dayOfWeek": 0,
 				  		"totalRoutines": 1,
