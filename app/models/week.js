@@ -5,5 +5,6 @@ var attr = DS.attr,
 export default DS.Model.extend({
 	startDate: attr('date'),
   endDate: attr('date'),
+  short_date: attr(),
   days: hasMany('day')
 });

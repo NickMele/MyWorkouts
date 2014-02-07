@@ -51,34 +51,40 @@
 			height: modular-scale(4.5, $base-size);
 			
 			&.current {
-				border-left-color: $gray;
+				border-left-color: $blue;
 				margin-top: -1px;
+				.date,
+				.day {
+					color: $blue;
+				}
 			}
 			&.upcoming {
-				opacity: .5;
+				opacity: .25;
 			}
 			&.completed {
 				.status-container {
 					background: rgba(92, 184, 92,.1);
-					color: $green;				
+					color: $green;
+					display: flex;
 				}
 			}
 			&.skipped {
 				.status-container {
 					background: rgba(210, 50, 45,.1);
 					color: $red;
+					display: flex;
 				}
 			}
 			&:active {
 				box-shadow: 0 0 1rem 0 $base-shadow-color;
 				opacity: 1;
-				border-left: .5rem solid $blue;
 			}
 
 			.day,
 			.date {
 				flex: 1 50%;
-				color: $light-font-color;
+				font-size: modular-scale(.5, $base-size);
+				font-weight: 300;
 			}
 			.date {
 				text-align: right;
@@ -94,7 +100,7 @@
 			}
 			.status-container {
 				position: absolute;
-				display: flex;
+				display: none;
 				align-items: center;
 				justify-content: center;
 				width: 100%;

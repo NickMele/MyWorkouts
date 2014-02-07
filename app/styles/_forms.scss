@@ -90,3 +90,27 @@ textarea {
 	}
 
 }
+
+.day-selector {
+	display: flex;
+	overflow-x: hidden;
+			
+	button {
+		flex: 1;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: modular-scale(0, $base-size);
+		padding-bottom: modular-scale(0, $base-size);
+		
+		&:first-of-type {
+			border-left: none;
+		}
+		&:last-of-type {
+			border-right: none;
+		}
+		
+		&.selected {
+			opacity: .5
+		}
+	}
+}

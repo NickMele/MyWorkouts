@@ -1,3 +1,11 @@
 .padded {
   padding: modular-scale(0, $base-size);
 }
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-margin-top {
+  margin-top: 0 !important;
+}

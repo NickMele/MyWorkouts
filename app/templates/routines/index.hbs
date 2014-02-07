@@ -1,0 +1,10 @@
+<div class="flex-row">
+  {{#link-to "routines.create" class="button button-green"}}Create a new routine{{/link-to}}
+</div>
+<ul class="link-list border-top">
+  {{#each routine in model}}
+    <li>
+      {{#link-to "routines.routine" routine}}{{routine.name}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>
