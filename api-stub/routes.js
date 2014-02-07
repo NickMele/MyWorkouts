@@ -146,7 +146,7 @@ module.exports = function(server) {
 					  "days": [
 					  	{
 					  		"id": 1,
-					  		"slug": 'monday',
+					  		"slug": 'sunday',
 					  		"date": new Date('2014-2-3'),
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
@@ -158,7 +158,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 2,
-					  		"slug": 'tuesday',
+					  		"slug": 'monday',
 					  		"date": new Date('2014-2-4'),
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
@@ -170,7 +170,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 3,
-					  		"slug": 'wednesday',
+					  		"slug": 'tuesday',
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
 					  		"totalRoutines": 0,
@@ -182,7 +182,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 4,
-					  		"slug": 'thursday',
+					  		"slug": 'wednesday',
 					  		"date": new Date('2014-2-6'),
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
@@ -194,7 +194,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 5,
-					  		"slug": 'friday',
+					  		"slug": 'thursday',
 					  		"date": new Date('2014-2-7'),
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
@@ -206,7 +206,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 6,
-					  		"slug": 'saturday',
+					  		"slug": 'friday',
 					  		"date": new Date('2014-2-8'),
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
@@ -218,7 +218,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 7,
-					  		"slug": 'sunday',
+					  		"slug": 'saturday',
 					  		"date": new Date('2014-2-9'),
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
