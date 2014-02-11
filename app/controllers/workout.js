@@ -14,8 +14,7 @@ export default Em.ObjectController.extend({
         newSet.set('set_number', 1);
       }
       
-      sets.pushObject(newSet);
-      
+      sets.addObject(newSet);
     }
   }
   

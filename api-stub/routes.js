@@ -301,7 +301,7 @@ module.exports = function(server) {
 			console.log(req.params);
 			var day = {
 					  "days": {
-				  		"id": 0,
+				  		"id": 1,
 				  		"slug": "monday",
 				  		"date": new Date(),
 				  		"dayOfWeek": 0,
@@ -359,7 +359,10 @@ module.exports = function(server) {
 		});
 
 		server.put('/days/:id', function(req, res) {
-			console.log(req.body)
+			console.log(req.params.id, req.body);
+			var json = req.body;
+			json.day.slug = req.params.id;
+			res.json(200, json);
 		});
 		
 		server.get('/routines', function(req, res) {
@@ -410,7 +413,10 @@ module.exports = function(server) {
 		});
 		
 		server.put('/routines/:id', function(req, res) {
-			console.log(req.body)
+			console.log(req.params.id, req.body);
+			var json = req.body;
+			json.routine.id = req.params.id;
+			res.json(200, json);
 		});
 		
 		server.get('/workouts/:id', function(req, res) {
@@ -426,15 +432,31 @@ module.exports = function(server) {
 		});
 		
 		server.put('/workouts/:id', function(req, res) {
-			console.log(req.body)
+			console.log(req.params.id, req.body);
+			var json = req.body;
+			json.workout.id = req.params.id;
+			res.json(200, json);
 		});
 		
 		server.put('/entries/:id', function(req, res) {
+			console.log(req.params.id, req.body);
+			var json = req.body;
+			json.entry.id = req.params.id;
+			res.json(200, json);
+		});
+		
+		server.post('/sets', function(req, res) {
 			console.log(req.body)
+			var json = req.body;
+			json.set.id = req.body.set.set_number + 100;
+			res.json(200, json);
 		});
 		
 		server.put('/sets/:id', function(req, res) {
-			console.log(req.body)
+			console.log(req.params.id, req.body);
+			var json = req.body;
+			json.set.id = req.params.id;
+			res.json(200, json);
 		});
 
 	});
