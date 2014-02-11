@@ -13,10 +13,6 @@ export default Ember.ObjectController.extend({
         workouts.forEach(function(workout) {
           var entry = workout.get('entry'),
               sets = entry.get('sets');
-          // sets.forEach(function(set) {
-          //   console.log('saving set: ' + set.get('set_number'));
-          //   set.save();
-          // });
           console.log('saving sets');
           sets.save().then(function() {
             console.log('saving entry');
