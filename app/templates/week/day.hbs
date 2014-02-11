@@ -30,6 +30,6 @@
 {{/each}}
 
 <section class="form-actions">
-  <button class="button button-green">Completed!</button>
-  <button class="button button-red">Skip :(</button>
+  <button class="button button-green" {{action "save" "completed"}}>Completed!</button>
+  <button class="button button-red" {{action "save" "skipped"}}>Skip :(</button>
 </section>

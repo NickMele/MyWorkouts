@@ -357,6 +357,10 @@ module.exports = function(server) {
 
 			res.send(day);
 		});
+
+		server.put('/days/:id', function(req, res) {
+			console.log(req.body)
+		});
 		
 		server.get('/routines', function(req, res) {
 			var routines = {
@@ -405,6 +409,10 @@ module.exports = function(server) {
 			res.send(routines);
 		});
 		
+		server.put('/routines/:id', function(req, res) {
+			console.log(req.body)
+		});
+		
 		server.get('/workouts/:id', function(req, res) {
 			console.log(req.params);
 			var workout = {
@@ -415,6 +423,18 @@ module.exports = function(server) {
 					};
 
 			res.send(workout);
+		});
+		
+		server.put('/workouts/:id', function(req, res) {
+			console.log(req.body)
+		});
+		
+		server.put('/entries/:id', function(req, res) {
+			console.log(req.body)
+		});
+		
+		server.put('/sets/:id', function(req, res) {
+			console.log(req.body)
 		});
 
 	});
