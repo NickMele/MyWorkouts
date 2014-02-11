@@ -1,9 +1,27 @@
 {{#each routine in routines}}
   <h3 class="padded">{{routine.name}}</h3>
   <ul class="day-list border-top">
-    {{#each workout in routine.workouts}}
+    {{#each workout in routine.workouts itemController="workout"}}
       <li>
-        {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
+        <div class="flex-row">
+          <label class="checkbox">{{input type="checkbox" name="completed" checked=workout.entry.completed}}</label>
+          {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
+          <button class="button button-mini button-blue" {{action "addSet" workout.entry}}>Add set</button>
+        </div>
+      
+        {{#each set in workout.entry.sets itemController="set"}}
+          <div class="flex-row set">
+            <div class="set-name">Set {{set.set_number}}</div>
+            <label class="set-reps">
+              {{input type="number" value=set.reps placeholder="0"}}
+              <span>Reps</span>
+            </label>
+            <label class="set-weight">
+              {{input type="number" value=set.weight placeholder="0"}}
+              <span>lbs.</span>
+            </label>
+          </div>
+        {{/each}}
       </li>
     {{/each}}
   </ul>

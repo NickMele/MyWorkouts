@@ -120,13 +120,35 @@ module.exports = function(server) {
 					  "workouts": [
 					  	{
 					  		"id": 1,
-					  		"name": "Workout 1"
+					  		"name": "Workout 1",
+					  		"entry": 1
 					  	},
 					  	{
 					  		"id": 2,
-					  		"name": "Workout 2"
+					  		"name": "Workout 2",
+					  		"entry": 2
 					  	}
-					  ]
+					  ],
+					  "entries": [
+					  	{
+					  		"id": 1,
+					  		"completed": true,
+					  		"sets": [1]
+					  	},
+					  	{
+					  		"id": 2,
+					  		"completed": true,
+					  		"sets": []
+					  	}
+					  ],
+					  "sets": [
+			  			{
+			  				"id": 1,
+			  				"set_number": 1,
+			  				"reps": 10,
+			  				"weight": 100
+			  			}
+			  		]
 					};
 
 			res.send(weeks);
@@ -241,13 +263,35 @@ module.exports = function(server) {
 					  "workouts": [
 					  	{
 					  		"id": 1,
-					  		"name": "Workout 1"
+					  		"name": "Workout 1",
+					  		"entry": 1
 					  	},
 					  	{
 					  		"id": 2,
-					  		"name": "Workout 2"
+					  		"name": "Workout 2",
+					  		"entry": 2
 					  	}
-					  ]
+					  ],
+					  "entries": [
+					  	{
+					  		"id": 1,
+					  		"completed": true,
+					  		"sets": [1]
+					  	},
+					  	{
+					  		"id": 2,
+					  		"completed": true,
+					  		"sets": []
+					  	}
+					  ],
+					  "sets": [
+			  			{
+			  				"id": 1,
+			  				"set_number": 1,
+			  				"reps": 10,
+			  				"weight": 100
+			  			}
+			  		]
 					};
 
 			res.send(week);
@@ -280,13 +324,35 @@ module.exports = function(server) {
 					  "workouts": [
 					  	{
 					  		"id": 1,
-					  		"name": "Workout 1"
+					  		"name": "Workout 1",
+					  		"entry": 1
 					  	},
 					  	{
 					  		"id": 2,
-					  		"name": "Workout 2"
+					  		"name": "Workout 2",
+					  		"entry": 2
 					  	}
-					  ]
+					  ],
+					  "entries": [
+					  	{
+					  		"id": 1,
+					  		"completed": true,
+					  		"sets": [1]
+					  	},
+					  	{
+					  		"id": 2,
+					  		"completed": true,
+					  		"sets": []
+					  	}
+					  ],
+					  "sets": [
+			  			{
+			  				"id": 1,
+			  				"set_number": 1,
+			  				"reps": 10,
+			  				"weight": 100
+			  			}
+			  		]
 					};
 
 			res.send(day);
@@ -305,13 +371,35 @@ module.exports = function(server) {
 					  "workouts": [
 					  	{
 					  		"id": 1,
-					  		"name": "Workout 1"
+					  		"name": "Workout 1",
+					  		"entry": 1
 					  	},
 					  	{
 					  		"id": 2,
-					  		"name": "Workout 2"
+					  		"name": "Workout 2",
+					  		"entry": 2
 					  	}
-					  ]
+					  ],
+					  "entries": [
+					  	{
+					  		"id": 1,
+					  		"completed": true,
+					  		"sets": [1]
+					  	},
+					  	{
+					  		"id": 2,
+					  		"completed": true,
+					  		"sets": []
+					  	}
+					  ],
+					  "sets": [
+			  			{
+			  				"id": 1,
+			  				"set_number": 1,
+			  				"reps": 10,
+			  				"weight": 100
+			  			}
+			  		]
 					};
 
 			res.send(routines);

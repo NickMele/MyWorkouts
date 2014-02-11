@@ -117,5 +117,55 @@
 }
 
 .day-list {
-	@extend .link-list
+	@extend .link-list;
+	
+	li {
+		overflow-x: hidden;
+		
+		a {
+			flex: 3;
+			padding-left: 0;
+		}
+		.checkbox {
+			box-sizing: border-box;
+			padding: modular-scale(.5, $base-size) modular-scale(0, $base-size);
+		}
+		
+		.button {
+			align-self: center;
+			margin-right: modular-scale(0, $base-size);
+			flex: 1;
+		}
+		
+		.set {
+			border-top: 1px solid lighten($border-color-lightest,20%);
+			
+			.set-name {
+				flex: 1;
+				padding: modular-scale(0, $base-size) modular-scale(0, $base-size);
+			}
+			.set-reps,
+			.set-weight {
+				flex: 1;
+				padding: 0;
+				display: flex;
+				align-items: center;
+				margin-right: modular-scale(0, $base-size);
+				color: $light-font-color;
+				input {
+					padding: modular-scale(0, $base-size) 0;
+					flex: 1;
+					border-top: none;
+					border-bottom: none;
+					text-align: right;
+					background: transparent;
+					color: $blue;
+				}
+				span {
+					margin-left: modular-scale(-1, $base-size);
+				}
+			}
+		}
+	}
+	
 }

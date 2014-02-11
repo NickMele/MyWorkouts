@@ -20,7 +20,9 @@ label {
 	display: block;
 }
 
-input[type=text] {
+input[type=text],
+input[type=number],
+input[type=email] {
 	box-sizing: border-box;
 	border: none;
 	background: $input-background-color;

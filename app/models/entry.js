@@ -3,6 +3,7 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	name: attr(),
-  entry: belongsTo('entry')
+	workout: belongsTo('workout'),
+  completed: attr(),
+  sets: hasMany('set')
 });
