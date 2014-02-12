@@ -14,18 +14,7 @@
   </div>
 
   <label for="">Add some workouts</label>
-  <input type="text" placeholder="Start typing...">
-  <div class="suggestions">
-    <a class="suggestion">
-      Item 1
-    </a>
-    <a class="suggestion">
-      Item 2
-    </a>
-    <a class="suggestion">
-      Item 2
-    </a>
-  </div>
+  {{view "autocomplete" placeholder="Start typing..." controllerBinding="controller"}}
 
   <section class="form-actions">
     <button class="button button-green" type="submit">Save</button>
