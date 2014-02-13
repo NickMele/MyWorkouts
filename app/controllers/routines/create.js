@@ -1,17 +1,19 @@
 export default Ember.ObjectController.extend({
-  needs: ['autocomplete'],
+  // needs: ['autocomplete'],
   
   actions: {
-    addWorkout: function(value) {
-      console.log(value);
+    addWorkout: function(workout) {
+      var workouts = this.get('workouts');
+      if (workouts.contains(workout)) {
+        return;
+      }
+      workouts.pushObject(workout);
     },
     search: function(term, context) {
-      var results = [
-        Ember.Object.create({name: term}),
-        Ember.Object.create({name: 'Military Press'}),
-        Ember.Object.create({name: 'Shoulder Press'}),
-      ];
-      context.set('content', results);
+      var workouts = this.store.find('workout', { name: term });
+      workouts.then(function(workouts) {
+        context.set('content', workouts);
+      });      
     }
   }
 });

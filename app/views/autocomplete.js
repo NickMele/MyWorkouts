@@ -103,8 +103,10 @@ export default Ember.ContainerView.extend({
   select: function(value) {
     this.set('value', value);
     this.get('controller').send('addWorkout', value);
-    setTimeout(Ember.$.proxy(this, 'hide'), 500);
-    setTimeout(Ember.$.proxy(this, 'clear'), 500);
+    Ember.run.later(this, function() {
+      Ember.$.proxy(this, 'hide');
+      this.clear();
+    }, 100);    
   },
 
   search: function(term) {

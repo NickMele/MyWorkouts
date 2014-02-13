@@ -419,6 +419,32 @@ module.exports = function(server) {
 			res.json(200, json);
 		});
 		
+		server.get('/workouts', function(req, res) {
+			console.log(req.query);
+			var workouts = {
+					  "workouts": [
+					  	{
+					  		"id": 1,
+					  		"name": "Workout 1"
+				  		},
+				  		{
+					  		"id": 2,
+					  		"name": "Workout 2"
+				  		},
+				  		{
+					  		"id": 3,
+					  		"name": "Bench Press"
+				  		},
+				  		{
+					  		"id": 4,
+					  		"name": "Curl"
+				  		}
+				  	]
+					};
+
+			res.send(workouts);
+		});
+		
 		server.get('/workouts/:id', function(req, res) {
 			console.log(req.params);
 			var workout = {

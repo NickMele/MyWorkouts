@@ -75,6 +75,10 @@ textarea {
 }
 
 .suggestions {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	box-sizing: border-box;
 
 	.suggestion {
 		display: block;
@@ -85,9 +89,11 @@ textarea {
 		&:last-of-type {
 			border-bottom: 2px solid darken($input-border-color, 20%);
 		}
-
-		&:active {
-			background: darken($input-background-color, 3%);
+		
+		&:active,
+		&.selected {
+			background: $blue;
+			color: rgba(255,255,255,.9);
 		}
 	}
 

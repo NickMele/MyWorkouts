@@ -12,11 +12,16 @@
 		margin: 0;
 		border-bottom: 1px solid $link-list-border-color;
 
-		a {
+		a,
+		> span {
 			padding: modular-scale(.5, $base-size) modular-scale(0, $base-size);
 			display: block;
 			color: $base-link-color;
 			text-decoration: none;
+		}
+		
+		span {
+			color: $base-font-color;
 		}
 	}
 }

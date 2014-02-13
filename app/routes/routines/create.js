@@ -7,6 +7,12 @@ export default Ember.Route.extend({
   },
   
 	model: function() {
-    return this.modelFor('routine');
-	}
+    return this.store.createRecord('routine');
+	},
+  
+  actions: {
+    willTransition: function() {
+      this.controller.get('model').destroyRecord();
+    }
+  }
 });
