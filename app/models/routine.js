@@ -4,5 +4,6 @@ var attr = DS.attr,
 
 export default DS.Model.extend({
 	name: attr(),
+  days: attr(),
 	workouts: hasMany('workout')
 });

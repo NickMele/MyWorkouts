@@ -3,15 +3,7 @@
   <input type="text" placeholder="ex: Upper Body, Arms...">
   
   <label for="">What days will you do this routine?</label>
-  <div class="day-selector">
-    <button class="button button-blue">S</button>
-    <button class="button button-blue selected">M</button>
-    <button class="button button-blue">T</button>
-    <button class="button button-blue">W</button>
-    <button class="button button-blue">Th</button>
-    <button class="button button-blue">F</button>
-    <button class="button button-blue">S</button>
-  </div>
+  {{view "routine-days"}}
 
   <label for="">Add some workouts</label>
   {{view "autocomplete" placeholder="Start typing..." controllerBinding="controller"}}

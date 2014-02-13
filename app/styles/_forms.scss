@@ -95,10 +95,13 @@ textarea {
 
 .day-selector {
 	display: flex;
-	overflow-x: hidden;
+	overflow: hidden;
+	justify-content: center;
+	backface-visibility: hidden;
 			
 	button {
-		flex: 1;
+		backface-visibility: hidden;
+		flex: 1 0;
 		padding-left: 0;
 		padding-right: 0;
 		padding-top: modular-scale(0, $base-size);
@@ -112,7 +115,7 @@ textarea {
 		}
 		
 		&.selected {
-			opacity: .5
+			opacity: .5;	
 		}
 	}
 }
