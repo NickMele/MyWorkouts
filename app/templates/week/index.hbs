@@ -4,12 +4,16 @@
       {{#link-to "week.day" day class=day.status}}
         <div class="day">{{format-date day.date format="dddd"}}</div>
         <div class="date">{{format-date day.date format="MMM D"}}</div>
-        <div class="routine">{{day.totalRoutines}} Routines</div>
+        <div class="routine">
+          {{#if day.totalRoutines}}
+            {{day.totalRoutines}} Routines
+          {{else}}
+            Rest Day
+          {{/if}}
+        </div>
         <div class="workouts">
           {{#if day.totalWorkouts}}
             {{day.totalWorkouts}} Workouts
-          {{else}}
-            Rest Day
           {{/if}}
         </div>
         <div {{bind-attr class=":status-container day.status"}}>

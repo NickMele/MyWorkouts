@@ -119,6 +119,10 @@ export default Ember.ContainerView.extend({
 
   confirm: function() {
     var selected = this.get('selected');
+    if (!selected) {
+      selected = this.get('content.firstObject');
+      this.set('selected', selected);
+    }
     this.select(selected);
   },
 
