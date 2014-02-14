@@ -9,11 +9,26 @@ export default Ember.ObjectController.extend({
       }
       workouts.pushObject(workout);
     },
+    removeWorkout: function(workout) {
+      var workouts = this.get('workouts');
+      workouts.removeObject(workout);
+    },
     search: function(term, context) {
-      var workouts = this.store.find('workout', { name: term });
+      var self = this,
+          workouts = self.store.find('workout', { name: term });
       workouts.then(function(workouts) {
+        var newWorkout = self.store.createRecord('workout', { name: term });
+        workouts.insertAt(0, newWorkout);
         context.set('content', workouts);
       });      
+    },
+    toggleDay: function(day, selected) {
+      var days = this.get('days');
+      if (!selected) {
+        days.pushObject(day);
+      } else {
+        days.removeObject(day);
+      }
     }
   }
 });

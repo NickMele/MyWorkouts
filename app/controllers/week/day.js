@@ -18,7 +18,7 @@ export default Ember.ObjectController.extend({
             console.log('saving entry');
             entry.save();
           });
-        })
+        });
       });
       console.log('saving day');
       day.save();

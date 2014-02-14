@@ -8,7 +8,7 @@ form {
 	display: flex;
 	margin-top: modular-scale(.5, $base-size);
 
-	button {
+	.button {
 		flex: 1;
 	}
 }

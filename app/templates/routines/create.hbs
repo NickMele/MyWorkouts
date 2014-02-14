@@ -1,6 +1,6 @@
 <form action="">
   <label for="">Give your routine a name</label>
-  <input type="text" placeholder="ex: Upper Body, Arms...">
+  {{input type="text" value=name placeholder="ex: Upper Body, Arms..."}}
   
   <label for="">What days will you do this routine?</label>
   {{view "routine-days"}}
@@ -9,12 +9,17 @@
   {{view "autocomplete" placeholder="Start typing..." controllerBinding="controller"}}
   <ul class="link-list">
     {{#each workout in workouts}}
-      <li><span>{{workout.name}}</span></li>
+      <li>
+        <div class="flex-row">
+          <span class="flex padded">{{workout.name}}</span>
+          <a href="#" class="red" {{action "removeWorkout" workout}}>&cross;</a>
+        </div>
+      </li>
     {{/each}}
   </ul>
 
   <section class="form-actions">
     <button class="button button-green" type="submit">Save</button>
-    <button class="button">Cancel</button>
+    {{#link-to "routines" class="button"}}Cancel{{/link-to}}
   </section>
 </form>

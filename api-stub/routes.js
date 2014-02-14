@@ -441,6 +441,13 @@ module.exports = function(server) {
 				  		}
 				  	]
 					};
+			var regex = new RegExp(req.query.name, 'i');
+			workouts.workouts = workouts.workouts.filter(function(workout) {
+	      if (workout.name.match(regex)) {
+	      	return workout;	
+	      }
+	    });
+	    console.log(workouts);
 
 			res.send(workouts);
 		});

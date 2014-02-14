@@ -22,4 +22,8 @@ a {
 
 .flex-row {
   display: flex;
+  
+  .flex {
+    flex: 1;
+  }
 }
