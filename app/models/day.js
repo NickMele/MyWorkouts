@@ -3,7 +3,8 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	"date": attr('date'),
+	"week": belongsTo('week'),
+  "date": attr('date'),
   "dayOfWeek": attr(),
   "totalRoutines": attr(),
   "totalWorkouts": attr(),

@@ -10,6 +10,8 @@
     "jade": "*"
   },
   "devDependencies": {
-    "express-namespace": "^0.1.1"
+    "express-namespace": "^0.1.1",
+    "moment": "^2.5.1",
+    "lodash": "^2.4.1"
   }
 }

@@ -10,22 +10,14 @@ module.exports = function(server) {
 			var weeks = {
 					  "weeks": [{
 					  	"id": 1,
-					  	"slug": '1',
 					  	"startDate": new Date('2014-1-1'),
 					  	"endDate": new Date('2014-1-7'),
-					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-					  },
-					  {
-					  	"id": 1,
-					  	"slug": '2',
-					  	"startDate": new Date('2014-1-8'),
-					  	"endDate": new Date('2014-1-14'),
-					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+					  	"days": [1,2,3,4,5,6,7]
 					  }],
 					  "days": [
 					  	{
 					  		"id": 1,
-					  		"slug": 'monday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-3'),
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
@@ -37,7 +29,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 2,
-					  		"slug": 'tuesday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-4'),
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
@@ -49,7 +41,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 3,
-					  		"slug": 'wednesday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
 					  		"totalRoutines": 0,
@@ -61,7 +53,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 4,
-					  		"slug": 'thursday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-6'),
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
@@ -73,7 +65,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 5,
-					  		"slug": 'friday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-7'),
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
@@ -85,7 +77,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 6,
-					  		"slug": 'saturday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-8'),
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
@@ -97,7 +89,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 7,
-					  		"slug": 'sunday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-9'),
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
@@ -160,15 +152,14 @@ module.exports = function(server) {
 			var week = {
 					  "weeks": {
 					  	"id": 1,
-					  	"slug": '1',
 					  	"startDate": new Date('2014-2-3'),
 					  	"endDate": new Date('2014-2-9'),
-					  	"days": ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+					  	"days": [1,2,3,4,5,6,7]
 					  },
 					  "days": [
 					  	{
 					  		"id": 1,
-					  		"slug": 'sunday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-3'),
 					  		"dayOfWeek": 0,
 					  		"totalRoutines": 1,
@@ -180,7 +171,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 2,
-					  		"slug": 'monday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-4'),
 					  		"dayOfWeek": 1,
 					  		"totalRoutines": 1,
@@ -192,7 +183,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 3,
-					  		"slug": 'tuesday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-5'),
 					  		"dayOfWeek": 2,
 					  		"totalRoutines": 0,
@@ -204,7 +195,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 4,
-					  		"slug": 'wednesday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-6'),
 					  		"dayOfWeek": 3,
 					  		"totalRoutines": 1,
@@ -216,7 +207,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 5,
-					  		"slug": 'thursday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-7'),
 					  		"dayOfWeek": 4,
 					  		"totalRoutines": 1,
@@ -228,7 +219,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 6,
-					  		"slug": 'friday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-8'),
 					  		"dayOfWeek": 5,
 					  		"totalRoutines": 1,
@@ -240,7 +231,7 @@ module.exports = function(server) {
 					  	},
 					  	{
 					  		"id": 7,
-					  		"slug": 'saturday',
+					  		"week": 1,
 					  		"date": new Date('2014-2-9'),
 					  		"dayOfWeek": 6,
 					  		"totalRoutines": 1,
