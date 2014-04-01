@@ -1,28 +1,27 @@
 module.exports = function(app) {
   
   var _ = require('lodash')
-    , entries = [
-        {
-          "id": 1,
-          "completed": true,
-          "sets": []
-        },
-        {
-          "id": 2,
-          "completed": true,
-          "sets": []
-        }
-      ];
+    , Entry = require('../models/entry').Entry;
+    
+  var determineEntriesToLoad = function(workouts) {
+    return _.chain(workouts).flatten("entry").uniq().without(undefined).value();
+  };
   
   return {
-    find: function(ids) {
-      if (_.isArray(ids)) {
-        return _.filter(entries, function(entry) {
-          return _.contains(ids, entry.id);
-        });
-      } else {
-        return entries;
-      }
+    sideloadEntries: function(callback) {
+      var entriesToLoad = determineEntriesToLoad(app.data.workouts);
+      Entry.find({
+        '_id': {
+          $in: entriesToLoad
+        }
+      }, function(error, entries) {
+        if (error) {
+          callback(error);
+        } else {
+          app.data.entries = entries;
+          callback(null);
+        }
+      });
     }
   }
 };

@@ -7,7 +7,11 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , namespace = require('express-namespace')
-  , app = express();
+  , app = express()
+  , mongoose = require('mongoose');
+
+// connect to database
+mongoose.connect('mongodb://localhost/myworkouts');
 
 // all environments
 app.set('port', process.env.PORT || 3000);

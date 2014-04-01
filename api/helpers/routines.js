@@ -1,31 +1,45 @@
 module.exports = function(app) {
   
   var _ = require('lodash')
-    , routines = [
-      {
-        "id": 1,
-        "name": "Test Routine",
-        "workouts": [1]
-      },
-      {
-        "id": 2,
-        "name": "Tester Routine",
-        "workouts": [1,2]
-      }
-    ];
+    , Routine = require('../models/routine').Routine;
+  
+  var mapDataToDays = function() {
+    app.locals.daysRoutinesMap = {};
+    app.locals.daysWorkoutsMap = {};
+    //-- loop through each routine that was loaded
+    _.forEach(app.data.routines, function(routine) {
+      //-- now loop through the days and push the routine id to the day object
+      _.forEach(routine.days, function(day) {
+        if (!_.isArray(app.locals.daysRoutinesMap[day])) {
+          app.locals.daysRoutinesMap[day] = [];
+        }
+        //-- push routine id to routines map
+        app.locals.daysRoutinesMap[day].push(routine._id);
+        if (!_.isArray(app.locals.daysWorkoutsMap[day])) {
+          app.locals.daysWorkoutsMap[day] = [];
+        }
+        //-- push workouts to workouts map
+        app.locals.daysWorkoutsMap[day] = _.union(app.locals.daysWorkoutsMap[day],routine.workouts);
+      })
+    });
+  };
   
   return {
-    determineRoutinesToLoad: function(days) {
-      return _.chain(days).flatten("routines").uniq().value();
-    },
-    find: function(ids) {
-      if (_.isArray(ids)) {
-        return _.filter(routines, function(routine) {
-          return _.contains(ids, routine.id);
-        });
-      } else {
-        return routines;
-      }
+    sideloadRoutines: function(callback) {
+      var daysToLoad = [0,1,2,3,4,5,6];
+      Routine.find({
+        'days': {
+          $in: daysToLoad
+        }
+      }, function(error, routines) {
+        if (error) {
+          callback(error);
+        } else {
+          app.data.routines = routines;
+          mapDataToDays();
+          callback(null);
+        }
+      });
     }
   }
 };

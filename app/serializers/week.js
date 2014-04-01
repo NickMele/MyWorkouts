@@ -1,3 +1,3 @@
 export default DS.RESTSerializer.extend({
-  primaryKey: 'id'
+  primaryKey: '_id'
 });

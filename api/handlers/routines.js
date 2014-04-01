@@ -25,8 +25,7 @@ module.exports = function(app) {
       data.workouts = helpers.workouts.find(workoutsToLoad);
       
       //-- load entries
-      //TODO: IMPLEMENT LIKE WORKOUTS AND ROUTINES
-      var entriesToLoad = _.chain(data.workouts).flatten("entry").uniq().value();
+      var entriesToLoad = helpers.entries.determineEntriesToLoad(data.workouts);
       data.entries = helpers.entries.find(entriesToLoad);
     
       res.send(data);

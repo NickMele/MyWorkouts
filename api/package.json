@@ -12,6 +12,9 @@
   "devDependencies": {
     "express-namespace": "^0.1.1",
     "moment": "^2.5.1",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "firebase": "^1.0.11",
+    "mongoose": "^3.8.8",
+    "async": "^0.6.2"
   }
 }

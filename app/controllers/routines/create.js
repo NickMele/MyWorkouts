@@ -29,6 +29,9 @@ export default Ember.ObjectController.extend({
       } else {
         days.removeObject(day);
       }
+    },
+    saveRoutine: function() {
+      console.log(this.get('model.days'));
     }
   }
 });
