@@ -9,19 +9,23 @@ module.exports = function(app) {
   
   return {
     sideloadWorkouts: function(callback) {
-      var workoutsToLoad = determineWorkoutsToLoad(app.data.routines);
-      Workout.find({
-        '_id': {
-          $in: workoutsToLoad
-        }
-      }, function(error, workouts) {
-        if (error) {
-          callback(error);
-        } else {
-          app.data.workouts = workouts;
-          callback(null);
-        }
-      });
+      if (app.data.routines) {
+        var workoutsToLoad = determineWorkoutsToLoad(app.data.routines);
+        Workout.find({
+          '_id': {
+            $in: workoutsToLoad
+          }
+        }, function(error, workouts) {
+          if (error) {
+            callback(error);
+          } else {
+            app.data.workouts = workouts;
+            callback(null);
+          }
+        }); 
+      } else {
+        callback("could not find routines in app.data");
+      }
     }
   }
 };

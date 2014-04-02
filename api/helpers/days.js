@@ -1,24 +1,24 @@
 module.exports = function(app) {
   var moment = require('moment')
+    , _ = require('lodash')
+    , async = require('async')
     , helpers = {
         routines: require('../helpers/routines')(app)
       };
   
-  var getDayObject = function(dayOfYear) {
-    var dayOfWeek = moment().dayOfYear(dayOfYear).weekday();
+  var getDayObject = function(dayOfYear, year) {
+    if (!year) {
+      year = moment().year();
+    }
+    var dayOfWeek = moment().year(year).dayOfYear(dayOfYear).weekday();
     return {
       "_id": dayOfYear,
-      "week": moment().dayOfYear(dayOfYear).week(),
-      "date": moment().dayOfYear(dayOfYear).toDate(),
+      "date": moment().year(year).dayOfYear(dayOfYear).toDate(),
       "dayOfWeek": dayOfWeek,
-      "totalRoutines": (app.locals.daysRoutinesMap[dayOfWeek]) ? app.locals.daysRoutinesMap[dayOfWeek].length : 0,
-      "totalWorkouts": (app.locals.daysWorkoutsMap[dayOfWeek]) ? app.locals.daysWorkoutsMap[dayOfWeek].length : 0,
-      "routines": app.locals.daysRoutinesMap[dayOfWeek] || null,
-      "workouts": app.locals.daysWorkoutsMap[dayOfWeek] || null,
-      "status": "completed"
+      "routines": []
     };
   };
-      
+  
   return {
     getDayObject: getDayObject,
     loadDays: function(callback) {
@@ -28,14 +28,22 @@ module.exports = function(app) {
       }
       callback(null);
     },
-    loadDaysOfWeek: function(week) {
-      for (dayOfWeek=0;dayOfWeek<7;dayOfWeek++) {
-        var dayOfYear = moment().week(week._id).weekday(dayOfWeek).dayOfYear()
-          , day = getDayObject(dayOfYear);
-        app.data.days.push(day);
-        week.days.push(day._id);
+    sideloadDays: function(callback) {
+      if (app.data.weeks || app.data.week) {
+        var weeks = app.data.weeks || [app.data.week];
+        _.each(weeks, function(week) {
+          for (dayOfWeek=0;dayOfWeek<7;dayOfWeek++) {
+            var dayOfYear = moment(week.startDate).week(week._id).weekday(dayOfWeek).dayOfYear()
+              , year = moment(week.startDate).add(dayOfWeek,'day').year()
+              , day = getDayObject(dayOfYear,year);
+            app.data.days.push(day);
+            week.days.push(day._id);
+          }
+        });
+        callback(null);  
+      } else {
+        callback("could not find weeks in app.data");
       }
-      return week;
     }
   }
 };

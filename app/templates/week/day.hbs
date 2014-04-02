@@ -1,27 +1,36 @@
+{{#unless model.log}}
+  <div class="flex-row">
+    <button class="button button-blue" {{action "createLog"}}>Track your workouts</button>
+  </div>
+{{/unless}}
 {{#each routine in routines}}
   <h3 class="padded">{{routine.name}}</h3>
-  <ul class="day-list border-top">
-    {{#each workout in routine.workouts itemController="workout"}}
+  <ul {{bind-attr class=":border-top log:day-list:link-list"}}>
+    {{#each workout in routine.workouts}}
       <li>
-        <div class="flex-row">
-          <label class="checkbox">{{input type="checkbox" name="completed" checked=workout.entry.completed}}</label>
-          {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
-          <button class="button button-mini button-blue" {{action "addSet" workout.entry}}>Add set</button>
-        </div>
-      
-        {{#each set in workout.entry.sets itemController="set"}}
-          <div class="flex-row set">
-            <div class="set-name">Set {{set.set_number}}</div>
-            <label class="set-reps">
-              {{input type="number" value=set.reps placeholder="0"}}
-              <span>Reps</span>
-            </label>
-            <label class="set-weight">
-              {{input type="number" value=set.weight placeholder="0"}}
-              <span>lbs.</span>
-            </label>
+        {{#if model.log}}
+          <div class="flex-row">
+            <label class="checkbox">{{input type="checkbox" name="completed"}}</label>
+            {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
+            <button class="button button-mini button-blue" {{action "addSet" workout.entry}}>Add set</button>
           </div>
-        {{/each}}
+        
+          {{#each set in workout.entry.sets itemController="set"}}
+            <div class="flex-row set">
+              <div class="set-name">Set {{set.set_number}}</div>
+              <label class="set-reps">
+                {{input type="number" value=set.reps placeholder="0"}}
+                <span>Reps</span>
+              </label>
+              <label class="set-weight">
+                {{input type="number" value=set.weight placeholder="0"}}
+                <span>lbs.</span>
+              </label>
+            </div>
+          {{/each}}
+        {{else}}
+          {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}
+        {{/if}}
       </li>
     {{/each}}
   </ul>
@@ -29,7 +38,9 @@
   Rest day!
 {{/each}}
 
-<section class="form-actions">
-  <button class="button button-green" {{action "save" "completed"}}>Completed!</button>
-  <button class="button button-red" {{action "save" "skipped"}}>Skip :(</button>
-</section>
+{{#if model.log}}
+  <section class="form-actions">
+    <button class="button button-green" {{action "save" "completed"}}>Completed!</button>
+    <button class="button button-red" {{action "save" "skipped"}}>Skip :(</button>
+  </section>
+{{/if}}

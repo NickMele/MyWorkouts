@@ -3,8 +3,7 @@ var mongoose = require('mongoose')
   
 //-- define the schema
 var workoutSchema = new Schema({
-  name      : { type: String, required: true, trim: true },
-  entry     : { type: Schema.Types.ObjectId, ref: 'entry' }
+  name      : { type: String, required: true, trim: true }
 },
 {
   versionKey: false

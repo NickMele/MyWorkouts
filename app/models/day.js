@@ -6,10 +6,6 @@ export default DS.Model.extend({
 	"week": belongsTo('week'),
   "date": attr('date'),
   "dayOfWeek": attr(),
-  "totalRoutines": attr(),
-  "totalWorkouts": attr(),
   "routines": hasMany('routine'),
-  "workouts": hasMany('workout'),
-  "status": attr(),
-  "currentDay": attr()
+  "log": belongsTo('log')
 });

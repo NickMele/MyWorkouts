@@ -1,5 +1,6 @@
 module.exports = function(app) {
   var moment = require('moment')
+    , async = require('async')
     , helpers = {
         days: require('../helpers/days')(app)
       };
@@ -18,12 +19,20 @@ module.exports = function(app) {
     loadWeeks: function(callback) {
       for (weekOfYear=1;weekOfYear<53;weekOfYear++) {
         var week = getWeekObject(weekOfYear);
-        
-        //-- load days of week
-        week = helpers.days.loadDaysOfWeek(week);
+        if (!app.data.weeks) {
+          app.data.weeks = [];
+        }
         app.data.weeks.push(week);
       }
       callback(null);
+    },
+    loadWeek: function(callback) {
+      if (app.locals.weekOfYear) {
+        app.data.week = getWeekObject(app.locals.weekOfYear);
+        callback(null);
+      } else {
+        callback("could not find week of year in app.locals");
+      }
     }
   }
 };
