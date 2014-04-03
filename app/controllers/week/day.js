@@ -40,7 +40,7 @@ export default Ember.ObjectController.extend({
       console.log(status);
       
     },
-    createLog: function() {
+    log: function() {
       console.log('create log');
       //-- setup server to actually process this and return a real log
       this.set('log', this.store.createRecord('log'))

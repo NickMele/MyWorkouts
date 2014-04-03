@@ -19,7 +19,9 @@ Router.map(function() {
   
   this.resource('routines', function() {
     this.route('create');
-    this.route('routine', { path: '/:routine_id' });
+    this.resource('routine', { path: '/:routine_id' }, function() {
+      //--nest
+    });
   });
 });
 

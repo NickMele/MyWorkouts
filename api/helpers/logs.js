@@ -7,10 +7,10 @@ module.exports = function(app) {
     return _.chain(days).uniq("_id").without(undefined).value();
   };
   
-  var mapLogsToDays = function() {
+  var mapLogsToDays = function(logs,days) {
     //-- loop through each log that was loaded
-    _.forEach(app.data.logs, function(log) {
-      var day = _.find(app.data.days, { '_id': log.day });
+    _.forEach(logs, function(log) {
+      var day = _.find(days, { '_id': log.day });
       if (day) {
         day.log = log._id;
       }
@@ -18,24 +18,26 @@ module.exports = function(app) {
   };
   
   return {
-    sideloadLogs: function(callback) {
-      if (app.data.days) {
-        var logsToLoad = determineLogsToLoad(app.data.days);
-        Log.find({
-          'day': {
-            $in: logsToLoad
-          }
-        }, function(error, logs) {
-          if (error) {
-            callback(error);
-          } else {
-            app.data.logs = logs;
-            mapLogsToDays();
-            callback(null);
-          }
-        }); 
-      } else {
-        callback("could not find days in app.data");
+    sideloadLogs: function(req,res,data) {
+      return function(callback) {
+        if (data.days) {
+          var logsToLoad = determineLogsToLoad(data.days);
+          Log.find({
+            'day': {
+              $in: logsToLoad
+            }
+          }, function(error, logs) {
+            if (error) {
+              callback(error);
+            } else {
+              data.logs = logs;
+              mapLogsToDays(data.logs,data.days);
+              callback(null);
+            }
+          }); 
+        } else {
+          callback("could not find days in data");
+        }
       }
     }
   }

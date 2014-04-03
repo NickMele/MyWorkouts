@@ -6,32 +6,44 @@ module.exports = function(app) {
       };
   
   var getWeekObject = function(weekOfYear) {
+    var startDate = moment().week(weekOfYear).weekday(0).toDate()
+      , endDate = moment().week(weekOfYear).weekday(6).toDate()
+      , days = [];
+    
+    for (i=0;i<7;i++) {
+      days.push(moment().week(weekOfYear).weekday(i).dayOfYear());
+    }  
+    
     return {
       "_id": weekOfYear,
-      "startDate": moment().week(weekOfYear).weekday(0).toDate(),
-      "endDate": moment().week(weekOfYear).weekday(6).toDate(),
-      "days": []
+      "startDate": startDate,
+      "endDate": endDate,
+      "days": days
     };
   };
   
   return {
     getWeekObject: getWeekObject,
-    loadWeeks: function(callback) {
-      for (weekOfYear=1;weekOfYear<53;weekOfYear++) {
-        var week = getWeekObject(weekOfYear);
-        if (!app.data.weeks) {
-          app.data.weeks = [];
+    loadWeeks: function(req,res,data) {
+      return function(callback) {
+        for (weekOfYear=1;weekOfYear<53;weekOfYear++) {
+          var week = getWeekObject(weekOfYear);
+          if (!data.weeks) {
+            data.weeks = [];
+          }
+          data.weeks.push(week);
         }
-        app.data.weeks.push(week);
-      }
-      callback(null);
-    },
-    loadWeek: function(callback) {
-      if (app.locals.weekOfYear) {
-        app.data.week = getWeekObject(app.locals.weekOfYear);
         callback(null);
-      } else {
-        callback("could not find week of year in app.locals");
+      }
+    },
+    loadWeek: function(req,res,data) {
+      return function(callback) {
+        if (req.params.weekOfYear) {
+          data.week = getWeekObject(req.param.weekOfYear);
+          callback(null);
+        } else {
+          callback("could not find week of year in locals");
+        }
       }
     }
   }

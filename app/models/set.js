@@ -3,6 +3,7 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
+  entry: belongsTo('entry'),
 	set_number: attr(),
   reps: attr(),
   weight: attr()

@@ -14,8 +14,7 @@ module.exports = function(app) {
   return {
     index: function(req,res,next) {
       
-      app.locals = {};
-      app.data = {
+      var data = {
         days: [],
         routines: [],
         workouts: [],
@@ -24,22 +23,20 @@ module.exports = function(app) {
       };
       
       async.waterfall([
-        helpers.routines.sideloadRoutines,
-        helpers.workouts.sideloadWorkouts,
-        helpers.entries.sideloadEntries,
-        helpers.sets.sideloadSets,
-        helpers.days.loadDays
+        helpers.routines.sideloadRoutines(req,res,data),
+        helpers.workouts.sideloadWorkouts(req,res,data),
+        helpers.entries.sideloadEntries(req,res,data),
+        helpers.sets.sideloadSets(req,res,data),
+        helpers.days.loadDays(req,res,data)
       ], function(error) {
-        console.log(error);
-        res.send(app.data);
+        res.send(data);
       });
       
     },
     show: function(req,res,next) {
       var dayOfYear = req.params.dayOfYear;
       
-      app.locals = {};
-      app.data = {
+      var data = {
         day: null,
         routines: [],
         workouts: [],
@@ -48,15 +45,15 @@ module.exports = function(app) {
       };
       
       async.waterfall([
-        helpers.routines.sideloadRoutines,
-        helpers.workouts.sideloadWorkouts,
-        helpers.entries.sideloadEntries,
-        helpers.sets.sideloadSets
+        helpers.routines.sideloadRoutines(req,res,data),
+        helpers.workouts.sideloadWorkouts(req,res,data),
+        helpers.entries.sideloadEntries(req,res,data),
+        helpers.sets.sideloadSets(req,res,data)
       ], function(error) {
         
-        app.data.day = helpers.days.getDayObject(dayOfYear);
+        data.day = helpers.days.getDayObject(req,res,data)(dayOfYear);
         
-        res.send(app.data);
+        res.send(data);
       });
       
     }

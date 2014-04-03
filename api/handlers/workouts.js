@@ -14,29 +14,27 @@ module.exports = function(app) {
   
   return {
     index: function(req,res,next) {
-      
       var data = {
-        routines: [],
         workouts: []
       };
       
       async.waterfall([
-        helpers.routines.loadRoutines(req,res,data),
-        helpers.workouts.sideloadWorkouts(req,res,data)
+        helpers.workouts.loadWorkouts(req,res,data)
       ], function(error) {
         res.send(data);
       });
       
     },
     show: function(req,res,next) {
+      app.locals = {
+        workout_id: req.params.workout_id
+      };
       var data = {
-        routine: null,
-        workouts: []
+        workouts: null
       };
       
       async.waterfall([
-        helpers.routines.loadRoutine(req,res,data),
-        helpers.workouts.sideloadWorkouts(req,res,data)
+        helpers.workouts.loadWorkout(req,res,data)
       ], function(error) {
         res.send(data);
       });
@@ -44,11 +42,11 @@ module.exports = function(app) {
     },
     create: function(req,res,next) {
       var data = {
-        routine: null
+        workout: null
       }
       
       async.waterfall([
-        helpers.routines.createRoutine(req,res,data)
+        helpers.workouts.createWorkout(req,res,data)
       ], function(error) {
         res.send(data);
       });
@@ -56,11 +54,11 @@ module.exports = function(app) {
     },
     update: function(req,res,next) {
       var data = {
-        routine: null
+        workout: null
       }
       
       async.waterfall([
-        helpers.routines.updateRoutine(req,res,data)
+        helpers.workouts.updateWorkout(req,res,data)
       ], function(error) {
         res.send(data);
       });

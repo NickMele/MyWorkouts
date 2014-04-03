@@ -3,7 +3,7 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	"day": belongsTo('day'),
-  "completed": attr(),
-  "entries": hasMany('entry')
+	"day"        : belongsTo('day'),
+  "completed"  : attr(),
+  "entries"    : hasMany('entry')
 });

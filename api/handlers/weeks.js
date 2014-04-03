@@ -15,8 +15,7 @@ module.exports = function(app) {
   return {
     index: function(req,res,next) {
       
-      app.locals = {};
-      app.data = {
+      var data = {
         weeks: [],
         days: [],
         routines: [],
@@ -27,23 +26,20 @@ module.exports = function(app) {
       };
       
       async.waterfall([
-        helpers.weeks.loadWeeks,
-        helpers.days.sideloadDays,
-        helpers.routines.sideloadRoutines,
-        helpers.workouts.sideloadWorkouts,
-        helpers.logs.sideloadLogs,
-        helpers.entries.sideloadEntries,
-        helpers.sets.sideloadSets
+        helpers.weeks.loadWeeks(req,res,data),
+        helpers.days.sideloadDays(req,res,data),
+        helpers.routines.sideloadRoutines(req,res,data),
+        helpers.workouts.sideloadWorkouts(req,res,data),
+        helpers.logs.sideloadLogs(req,res,data),
+        helpers.entries.sideloadEntries(req,res,data),
+        helpers.sets.sideloadSets(req,res,data)
       ], function(error) {
-        res.send(app.data);
+        res.send(data);
       });
       
     },
     show: function(req,res,next) {
-      app.locals = {
-        weekOfYear: req.params.weekOfYear
-      };
-      app.data = {
+      var data = {
         week: null,
         days: [],
         routines: [],
@@ -53,15 +49,15 @@ module.exports = function(app) {
       };
       
       async.waterfall([
-        helpers.weeks.loadWeek,
-        helpers.days.sideloadDays,
-        helpers.routines.sideloadRoutines,
-        helpers.workouts.sideloadWorkouts,
-        helpers.logs.sideloadLogs,
-        helpers.entries.sideloadEntries,
-        helpers.sets.sideloadSets
+        helpers.weeks.loadWeek(req,res,data),
+        helpers.days.sideloadDays(req,res,data),
+        helpers.routines.sideloadRoutines(req,res,data),
+        helpers.workouts.sideloadWorkouts(req,res,data),
+        helpers.logs.sideloadLogs(req,res,data),
+        helpers.entries.sideloadEntries(req,res,data),
+        helpers.sets.sideloadSets(req,res,data)
       ], function(error) {
-        res.send(app.data);
+        res.send(data);
       });
       
     }

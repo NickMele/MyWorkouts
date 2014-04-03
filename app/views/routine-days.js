@@ -29,6 +29,7 @@ export default Ember.CollectionView.extend({
           selected = this.get('selected');
     
       this.get('controller').send('toggleDay', day, selected);
+      return false;
     }
 
   })

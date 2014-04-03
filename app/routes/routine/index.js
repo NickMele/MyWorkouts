@@ -6,7 +6,11 @@ export default Ember.Route.extend({
     this.controllerFor('header').set('title', title);
   },
   
-	model: function() {
+	model: function(params) {
     return this.modelFor('routine');
-	}
+	},
+  
+  renderTemplate: function() {
+    this.render('routines.create',{controller:'routine.index'})
+  }
 });

@@ -8,23 +8,25 @@ module.exports = function(app) {
   };
   
   return {
-    sideloadEntries: function(callback) {
-      if (app.data.logs) {
-        var entriesToLoad = determineEntriesToLoad(app.data.logs);
-        Entry.find({
-          '_id': {
-            $in: entriesToLoad
-          }
-        }, function(error, entries) {
-          if (error) {
-            callback(error);
-          } else {
-            app.data.entries = entries;
-            callback(null);
-          }
-        }); 
-      } else {
-        callback("could not find logs in app.data");
+    sideloadEntries: function(req,res,data) {
+      return function(callback) {
+        if (data.logs) {
+          var entriesToLoad = determineEntriesToLoad(data.logs);
+          Entry.find({
+            '_id': {
+              $in: entriesToLoad
+            }
+          }, function(error, entries) {
+            if (error) {
+              callback(error);
+            } else {
+              data.entries = entries;
+              callback(null);
+            }
+          }); 
+        } else {
+          callback("could not find logs in data");
+        }
       }
     }
   }

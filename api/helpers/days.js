@@ -20,29 +20,31 @@ module.exports = function(app) {
   };
   
   return {
-    getDayObject: getDayObject,
-    loadDays: function(callback) {
-      for (dayOfYear=1;dayOfYear<366;dayOfYear++) {
-        var day = getDayObject(dayOfYear);
-        app.data.days.push(day);
+    loadDays: function(req,res,data) {
+      return function(callback) {
+        for (dayOfYear=1;dayOfYear<366;dayOfYear++) {
+          var day = getDayObject(dayOfYear);
+          data.days.push(day);
+        }
+        callback(null);
       }
-      callback(null);
     },
-    sideloadDays: function(callback) {
-      if (app.data.weeks || app.data.week) {
-        var weeks = app.data.weeks || [app.data.week];
-        _.each(weeks, function(week) {
-          for (dayOfWeek=0;dayOfWeek<7;dayOfWeek++) {
-            var dayOfYear = moment(week.startDate).week(week._id).weekday(dayOfWeek).dayOfYear()
-              , year = moment(week.startDate).add(dayOfWeek,'day').year()
-              , day = getDayObject(dayOfYear,year);
-            app.data.days.push(day);
-            week.days.push(day._id);
-          }
-        });
-        callback(null);  
-      } else {
-        callback("could not find weeks in app.data");
+    sideloadDays: function(req,res,data) {
+      return function(callback) {
+        if (data.weeks || data.week) {
+          var weeks = data.weeks || [data.week];
+          _.each(weeks, function(week) {
+            for (dayOfWeek=0;dayOfWeek<7;dayOfWeek++) {
+              var dayOfYear = week.days[dayOfWeek]
+                , year = moment(week.startDate).add(dayOfWeek,'day').year()
+                , day = getDayObject(dayOfYear,year);
+              data.days.push(day);
+            }
+          });
+          callback(null);  
+        } else {
+          callback("could not find weeks in app.data");
+        }
       }
     }
   }

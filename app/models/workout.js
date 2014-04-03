@@ -3,6 +3,5 @@ var attr = DS.attr,
 	belongsTo = DS.belongsTo;
 
 export default DS.Model.extend({
-	name: attr(),
-  entry: belongsTo('entry')
+	name: attr()
 });

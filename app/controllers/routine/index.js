@@ -1,6 +1,4 @@
 export default Ember.ObjectController.extend({
-  // needs: ['autocomplete'],
-  
   actions: {
     addWorkout: function(workout) {
       var workouts = this.get('workouts');

@@ -8,23 +8,25 @@ module.exports = function(app) {
   };
   
   return {
-    sideloadSets: function(callback) {
-      if (app.data.entries) {
-        var setsToLoad = determineSetsToLoad(app.data.entries);
-        Set.find({
-          '_id': {
-            $in: setsToLoad
-          }
-        }, function(error, sets) {
-          if (error) {
-            callback(error);
-          } else {
-            app.data.sets = sets;
-            callback(null);
-          }
-        });
-      } else {
-        callback("could not find entries in app.data");
+    sideloadSets: function(req,res,data) {
+      return function(callback) {
+        if (data.entries) {
+          var setsToLoad = determineSetsToLoad(data.entries);
+          Set.find({
+            '_id': {
+              $in: setsToLoad
+            }
+          }, function(error, sets) {
+            if (error) {
+              callback(error);
+            } else {
+              data.sets = sets;
+              callback(null);
+            }
+          });
+        } else {
+          callback("could not find entries in data");
+        }
       }
     }
   }
