@@ -39,7 +39,7 @@ module.exports = function(app) {
     loadWeek: function(req,res,data) {
       return function(callback) {
         if (req.params.weekOfYear) {
-          data.week = getWeekObject(req.param.weekOfYear);
+          data.week = getWeekObject(req.params.weekOfYear);
           callback(null);
         } else {
           callback("could not find week of year in locals");

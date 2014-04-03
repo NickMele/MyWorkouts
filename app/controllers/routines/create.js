@@ -37,6 +37,7 @@ export default Ember.ObjectController.extend({
 
       workouts.save().then(function() {
         routine.save().then(function(routine) {
+          self.store.find('week')
           self.transitionToRoute('routine', routine);
         });
       });

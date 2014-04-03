@@ -3,7 +3,7 @@ module.exports = function(app) {
   var _ = require('lodash')
     , Routine = require('../models/routine').Routine;
   
-  var mapRoutinesToDays = function(days,routines) {
+  var mapRoutinesToDays = function(routines) {
     var daysRoutinesMap = {};
     //-- loop through each routine that was loaded
     _.forEach(routines, function(routine) {
