@@ -1,5 +1,4 @@
 <ul class="week-list">
-{{log model.days}}
   {{#each day in model.days itemController="week.day"}}
     <li>
       {{#link-to "week.day" day class=day.status}}

@@ -30,7 +30,7 @@ module.exports = function(app) {
         workout_id: req.params.workout_id
       };
       var data = {
-        workouts: null
+        workout: null
       };
       
       async.waterfall([

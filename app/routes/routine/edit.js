@@ -6,7 +6,8 @@ export default Ember.Route.extend({
     this.controllerFor('header').set('title', title);
   },
   
-	model: function(params) {
+  model: function(params) {
     return this.modelFor('routine');
-	}
+  }
+  
 });

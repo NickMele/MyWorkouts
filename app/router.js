@@ -15,11 +15,17 @@ Router.map(function() {
   // this.resource('day', { path: '/day/:date' });
   
   // go to a specific workout
-  this.resource('workout', { path: '/workout/:workout_id' });
+  this.resource('workouts', function() {
+    this.route('create');
+    this.resource('workout', { path: '/:workout_id' }, function() {
+      this.route('edit');
+    });
+  });
   
   this.resource('routines', function() {
     this.route('create');
     this.resource('routine', { path: '/:routine_id' }, function() {
+      this.route('edit');
       //--nest
     });
   });

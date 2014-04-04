@@ -1,0 +1,10 @@
+<div class="flex-row">
+  {{#link-to "workouts.create" class="button button-green"}}Add a new workout{{/link-to}}
+</div>
+<ul class="link-list border-top">
+  {{#each workout in model}}
+    <li>
+      {{#link-to "workout.edit" workout}}{{workout.name}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>

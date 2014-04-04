@@ -1,0 +1,9 @@
+<form {{action "saveWorkout" on="submit"}}>
+  <label for="">What's the workout name?</label>
+  {{input type="text" value=name placeholder="ex: Bench Press, Curls..."}}
+  
+  <section class="form-actions">
+    <button class="button button-green" type="submit">Save</button>
+    {{#link-to "workouts" class="button"}}Cancel{{/link-to}}
+  </section>
+</form>

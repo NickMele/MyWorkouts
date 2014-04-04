@@ -2,15 +2,15 @@ export default Ember.Route.extend({
   
   setupController: function(controller, model) {
     this._super(controller,model);
-    var title = 'New Routine';
+    var title = 'New Workout';
     this.controllerFor('header').set('title', title);
   },
   
 	model: function() {
-    return this.store.createRecord('routine', {days: []});
+    return this.store.createRecord('workout');
 	},
   
   renderTemplate: function() {
-    this.render('routine.edit',{controller:'routines.create'})
+    this.render('workout.edit',{controller:'workouts.create'})
   }
 });

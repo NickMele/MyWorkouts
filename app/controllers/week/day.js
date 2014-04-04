@@ -9,15 +9,17 @@ export default Ember.ObjectController.extend({
       , completed = this.get('log.completed')
       , date = moment(this.get('date'))
       , today = moment();
-    if (completed) {
-      self.set("status","completed");
-    } else if (!completed && date.isBefore(today,'day')) {
-      self.set("status","skipped");
-    } else if (date.isSame(today,'date')) {
+    // if (completed) {
+    //   self.set("status","completed");
+    // } else if (!completed && date.isBefore(today,'day')) {
+    //   self.set("status","skipped");
+    // }
+    if (date.isSame(today,'day')) {
       self.set("status","current");
-    } else if (date.isAfter(today,'date')) {
-      self.set("status","upcoming");
     }
+    // if (date.isAfter(today,'date')) {
+    //   self.set("status","upcoming");
+    // }
   }.observes('log.completed').on('init'),
   
   //-- determine total number of routines

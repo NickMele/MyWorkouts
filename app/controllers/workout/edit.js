@@ -1,6 +1,15 @@
-export default Em.ObjectController.extend({
+export default Ember.ObjectController.extend({
   
   actions: {
+    saveWorkout: function() {
+      var self = this
+        , workout = this.get('model');
+
+      workout.save().then(function() {
+        self.store.find('week')
+        self.transitionToRoute('workout', workout);
+      });
+    },
     addSet: function(entry) {
       var sets = entry.get('sets'),
           lastSet = sets.get('lastObject'),

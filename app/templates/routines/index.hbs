@@ -4,7 +4,7 @@
 <ul class="link-list border-top">
   {{#each routine in model}}
     <li>
-      {{#link-to "routine" routine}}{{routine.name}}{{/link-to}}
+      {{#link-to "routine.edit" routine}}{{routine.name}}{{/link-to}}
     </li>
   {{/each}}
 </ul>
