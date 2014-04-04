@@ -15,14 +15,11 @@
 		a,
 		> span,
 		.padded {
-			padding: modular-scale(.5, $base-size) modular-scale(0, $base-size);
+			padding: modular-scale(0, $base-size);
 			display: block;
-			color: $base-link-color;
+			color: $light-font-color;
 			text-decoration: none;
-		}
-		
-		> span {
-			color: $base-font-color;
+			font-weight: 300;
 		}
 	}
 }
@@ -42,23 +39,21 @@
 		position: relative;
 		
 		> a {
-			padding: modular-scale(0, $base-size);
+			padding: modular-scale(-.5, $base-size);
 			margin: 0;
 			text-decoration: none;
 			color: inherit;
 			position: relative;
 			box-sizing: border-box;
-			border-left: .5rem solid lighten($blue, 30%);
+			border-left: .5rem solid transparent;
 			border-bottom: 1px solid $link-list-border-color;
 			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-between;
-			align-content: space-between;
-			height: modular-scale(4.5, $base-size);
+			flex-flow: row;
+			align-items: center;
+			// height: modular-scale(4.5, $base-size);
 			
 			&.current {
 				border-left-color: $blue;
-				margin-top: -1px;
 				.date,
 				.day {
 					color: $blue;
@@ -86,37 +81,21 @@
 				opacity: 1;
 			}
 
-			.day,
 			.date {
-				flex: 1 50%;
-				font-size: modular-scale(.5, $base-size);
-				font-weight: 300;
-			}
-			.date {
-				text-align: right;
-			}
-			.routine {
-				flex: 1 60%;
-				align-self: flex-end;
-			}
-			.workouts {
-				flex: 1 40%;
-				align-self: flex-end;
-				text-align: right;
-			}
-			.status-container {
-				position: absolute;
-				display: none;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				box-sizing: border-box;
-				top: 0;
-				left: 0;
-				font-size: modular-scale(3, $base-size);
+				flex: 1 0;
+				font-size: modular-scale(1, $base-size);
 				line-height: 1;
-				z-index: -1;
+				text-align: right;
+			}
+			.day-info {
+				flex: 2 0;
+				font-size: modular-scale(0, $base-size);
+				color: $light-font-color;
+				.routines {
+					font-size: modular-scale(-.25, $base-size);
+					line-height: modular-scale(1, $base-size);
+					color: $dark-font-color;
+				}
 			}
 		}
 	}

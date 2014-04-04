@@ -18,6 +18,7 @@
 	padding: modular-scale(0, $base-size);
 	border-bottom: 1px solid $border-color;
 	box-shadow: 0 0 1rem 0 $base-shadow-color;
+	background: $gray;
 	align-items: center;
 	position: relative;
 	z-index: 1;

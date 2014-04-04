@@ -1,27 +1,28 @@
-$gray: rgba(150,150,150,.95);
+$gray: rgba(35,35,35,.95);
 $green: rgba(92, 184, 92,.95);
 $blue: rgba(66, 139, 202,.95);
 $red: rgba(210, 50, 45,.95);
 
-$application-background: rgba(253,253,253,1);
+$application-background: rgba(25,25,25,1);
 
 $base-font-size: 62.5%;
 $base-font-size-tablet: 70%;
 $base-font-size-mobile: 75%;
 $base-size: 1.3rem;
-$base-font-color: rgba(50,50,50,1);
+$base-font-color: rgba(180,180,180,1);
 $base-link-color: $blue;
-$base-border-color: rgba(180,180,180,.75);
+$base-border-color: rgba(180,180,180,.1);
 $base-shadow-color: rgba(0,0,0,.1);
 
-$light-font-color: rgba(125,125,125,1);
+$light-font-color: rgba(200,200,200,1);
+$dark-font-color: rgba(100,100,100,1);
 
 $shadow-color: rgba(0,0,0,.5);
 $shadow-blur: modular-scale(1, $base-size);
 
-$border-color: rgba(20,20,20,.25);
-$border-color-light: rgba(175,175,175,.5);
-$border-color-lightest: rgba(180,180,180,.5);
+$border-color: $base-border-color;
+$border-color-light: darken($base-border-color,10%);
+$border-color-lightest: darken($base-border-color,20%);
 
 $button-default: $gray;
 $button-green: $green;
@@ -31,4 +32,4 @@ $button-red: $red;
 $input-background-color: rgba(255,255,255,1);
 $input-border-color: $border-color-light;
 
-$link-list-border-color: $base-border-color;
+$link-list-border-color: $border-color-light;
