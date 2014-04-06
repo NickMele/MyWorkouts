@@ -19,6 +19,7 @@ module.exports = function(app) {
     app.get('/routines/:routine_id', routines.show);
     app.post('/routines', routines.create);
     app.put('/routines/:routine_id', routines.update);
+    app.delete('/routines/:routine_id', routines.delete);
     
     //-- workouts
     app.get('/workouts', workouts.index);

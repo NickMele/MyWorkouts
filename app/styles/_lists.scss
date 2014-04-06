@@ -12,12 +12,19 @@
 		margin: 0;
 		border-bottom: 1px solid $link-list-border-color;
 
-		a,
+		> a,
 		> span,
 		.padded {
 			padding: modular-scale(0, $base-size);
-			display: block;
-			color: $light-font-color;
+			display: flex;
+			color: $base-font-color;
+			text-decoration: none;
+			font-weight: 300;
+			justify-content: space-between;
+			align-items: center;
+		}
+		a {
+			color: $base-font-color;
 			text-decoration: none;
 			font-weight: 300;
 		}
@@ -123,7 +130,7 @@
 		}
 		
 		.set {
-			border-top: 1px solid lighten($border-color-lightest,20%);
+			border-top: 1px solid lighten($border-color-light,20%);
 			
 			.set-name {
 				flex: 1;
@@ -153,4 +160,17 @@
 		}
 	}
 	
+}
+
+.day-selector {
+	@extend .link-list;
+	
+	li {
+		&.selected {
+			span,
+			i {
+				color: $green;
+			}
+		}
+	}
 }

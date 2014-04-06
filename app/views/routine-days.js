@@ -1,12 +1,11 @@
 export default Ember.CollectionView.extend({
-  tagName: 'div',
+  tagName: 'ul',
   classNames: ['day-selector'],
   content: [0, 1, 2, 3, 4, 5, 6],
   itemViewClass: Ember.View.extend({
-    tagName: 'button',
-    classNames: ['button button-blue'],
+    tagName: 'li',
     classNameBindings: ['selected'],
-    template: Ember.Handlebars.compile('{{view.weekday}}'),
+    templateName: 'routine/days',
     
     selected: false,
     
@@ -21,7 +20,7 @@ export default Ember.CollectionView.extend({
     
     weekday: function() {
         var day = this.get('content');
-        return moment().weekday(day).format('dd');
+        return moment().weekday(day).format('dddd');
     }.property(),
 
     click: function() {

@@ -18,6 +18,7 @@ label {
 	padding-left: modular-scale(0, $base-size);
 	padding-bottom: modular-scale(-3, $base-size);
 	display: block;
+	color: $dark-font-color;
 }
 
 input[type=text],
@@ -33,6 +34,7 @@ input[type=email] {
 	padding: modular-scale(0, $base-size);
 	border-radius: 0;
 	box-shadow: 0;
+	color: $base-font-color;
 	-webkit-appearance: none;
 
 	&:focus {
@@ -97,31 +99,4 @@ textarea {
 		}
 	}
 
-}
-
-.day-selector {
-	display: flex;
-	overflow: hidden;
-	justify-content: center;
-	backface-visibility: hidden;
-			
-	button {
-		backface-visibility: hidden;
-		flex: 1 0;
-		padding-left: 0;
-		padding-right: 0;
-		padding-top: modular-scale(0, $base-size);
-		padding-bottom: modular-scale(0, $base-size);
-		
-		&:first-of-type {
-			border-left: none;
-		}
-		&:last-of-type {
-			border-right: none;
-		}
-		
-		&.selected {
-			opacity: .5;	
-		}
-	}
 }

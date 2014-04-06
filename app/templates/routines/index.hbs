@@ -1,10 +1,22 @@
-<div class="flex-row">
-  {{#link-to "routines.create" class="button button-green"}}Create a new routine{{/link-to}}
+<div class="flex-row actions">
+  {{#link-to "routines.create"}}<i class="fa fa-plus"></i> Create{{/link-to}}
+  <a href="#" {{action "edit"}} class="fadein">
+    {{#if isEditing}}
+      <i class="fa fa-times-circle-o"></i> Cancel
+    {{else}}
+      <i class="fa fa-check-circle-o"></i> Edit
+    {{/if}}
+  </a>
 </div>
 <ul class="link-list border-top">
-  {{#each routine in model}}
+  {{#each routine in model itemController="routine.index"}}
     <li>
-      {{#link-to "routine.edit" routine}}{{routine.name}}{{/link-to}}
+      <span>
+        {{#link-to "routine.index" routine}}{{routine.name}}{{/link-to}}
+        {{#if parentController.isEditing}}
+          <i class="fa fa-times fadein red" {{action "delete" routine}}></i>
+        {{/if}}
+      </span>
     </li>
   {{/each}}
 </ul>

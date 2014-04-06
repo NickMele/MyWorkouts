@@ -65,6 +65,18 @@ module.exports = function(app) {
         res.send(data);
       });
       
+    },
+    delete: function(req,res,next) {
+      var data = {
+        routine: null
+      }
+      
+      async.waterfall([
+        helpers.routines.deleteRoutine(req,res,data)
+      ], function(error) {
+        res.send(data);
+      });
+      
     }
   }
 }

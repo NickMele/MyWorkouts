@@ -1,10 +1,7 @@
 {{#if routines}}
-  <section class="flex-row">
-    <button class="button button-blue" {{action "log"}}>Log Workouts</button>
-  </section>
   {{#each routine in routines}}
-    <h3 class="padded">{{routine.name}}</h3>
-    <ul {{bind-attr class=":border-top :link-list"}}>
+    <h2 class="padded no-padding-bottom">{{routine.name}}</h2>
+    <ul {{bind-attr class=":link-list"}}>
       {{#each workout in routine.workouts}}
         <li>
           {{#link-to "workout" workout}}{{workout.name}}{{/link-to}}

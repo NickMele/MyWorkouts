@@ -1,16 +1,24 @@
 <div class="header">
   <div class="title">{{title}}</div>
-  <a class="menu-icon" href="" {{action 'toggleMenu'}}>&#8647;</a>
+  <a class="menu-icon" href="" {{action 'toggleMenu'}}>
+    <i class="fa fa-ellipsis-v"></i>
+  </a>
   
-  <div class="menu">
-    <div class="actions">
-      <a class="menu-icon" href="" {{action 'toggleMenu'}}>&#8647;</a>
-      <a class="menu-close-icon" href="" {{action 'toggleMenu'}}>></a>
+  <div class="menu-wrapper">
+    <div class="menu">
+      <div class="actions">
+        <a class="menu-icon" href="" {{action 'toggleMenu'}}>
+          <i class="fa fa-ellipsis-v"></i>
+        </a>
+        <a class="menu-close-icon" href="" {{action 'toggleMenu'}}>
+          <i class="fa fa-chevron-right"></i>
+        </a>
+      </div>
+      <ul class="link-list">
+        <li {{action "toggleMenu"}}>{{#link-to 'week' currentWeek}}This Week{{/link-to}}</li>
+        <li {{action "toggleMenu"}}>{{#link-to 'routines'}}Routines{{/link-to}}</li>
+        <li {{action "toggleMenu"}}>{{#link-to 'workouts'}}Workouts{{/link-to}}</li>
+      </ul>
     </div>
-    <ul class="link-list">
-      <li {{action "toggleMenu"}}>{{#link-to 'week' currentWeek}}This Week{{/link-to}}</li>
-      <li {{action "toggleMenu"}}>{{#link-to 'routines'}}Routines{{/link-to}}</li>
-      <li {{action "toggleMenu"}}>{{#link-to 'workouts'}}Workouts{{/link-to}}</li>
-    </ul>
   </div>
 </div>

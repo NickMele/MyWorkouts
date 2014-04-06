@@ -16,12 +16,23 @@ a {
   color: $base-link-color;
 }
 
-.wrapper {
-  // position: relative;
-}
-
 .flex-row {
   display: flex;
+  
+  &.actions {
+    justify-content: space-between;
+    background: $gray-light;
+    text-shadow: 0 0 .2rem $base-shadow-color;
+    a {
+      padding: modular-scale(0,$base-size);
+      padding-top: 0;
+      text-decoration: none;
+      font-size: modular-scale(0,$base-size);
+      i {
+        margin-right: modular-scale(-3,$base-size);
+      }
+    }
+  }
   
   .flex {
     flex: 1;

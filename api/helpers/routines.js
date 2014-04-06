@@ -112,6 +112,26 @@ module.exports = function(app) {
           callback("no routine provided to update");
         }
       }
+    },
+    deleteRoutine: function(req,res,data) {
+      return function(callback) {
+        if (req.params.routine_id) {
+          var routine_id = req.params.routine_id;
+          
+          console.info('Deleting routine '+routine_id);
+          //-- TODO: Make this so it doesn't remove, but just flags as removed. makes logging easier
+          Routine.findByIdAndRemove(routine_id, function(error, routine) {
+            if(error) {
+              callback(error);
+            } else {
+              data.routine = routine;
+              callback(null)
+            }
+          }); 
+        } else {
+          callback("no routine provided to delete");
+        }
+      }
     }
   }
 };

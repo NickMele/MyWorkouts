@@ -5,6 +5,9 @@
 .no-padding-top {
   padding-top: 0 !important;
 }
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}
 
 .no-margin-top {
   margin-top: 0 !important;
@@ -18,4 +21,11 @@
 }
 .green {
   color: $green !important;
+}
+.fadein {
+  animation: fadein 1s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

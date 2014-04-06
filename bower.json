@@ -15,6 +15,7 @@
     "ember": "~1.4.0-beta.2"
   },
   "devDependencies": {
-    "ember-animated-outlet": "~1.0.0-beta"
+    "ember-animated-outlet": "~1.0.0-beta",
+    "font-awesome": "~4.0.3"
   }
 }

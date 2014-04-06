@@ -10,10 +10,10 @@
   <ul class="link-list">
     {{#each workout in workouts}}
       <li>
-        <div class="flex-row">
-          <span class="flex padded">{{workout.name}}</span>
-          <a href="#" class="red" {{action "removeWorkout" workout}}>&cross;</a>
-        </div>
+          <span>
+            {{workout.name}}
+            <a href="#" class="red" {{action "removeWorkout" workout}}><i class="fa fa-times"></i></a>
+          </span>
       </li>
     {{/each}}
   </ul>
