@@ -3,6 +3,8 @@ export default Ember.ObjectController.extend({
     delete: function(routine) {
       if (confirm('Are you sure you want to remove the routine "' + routine.get('name') + '"?')) {
         routine.destroyRecord(); 
+      } else {
+        return false;
       }
     }
   }

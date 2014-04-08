@@ -161,16 +161,3 @@
 	}
 	
 }
-
-.day-selector {
-	@extend .link-list;
-	
-	li {
-		&.selected {
-			span,
-			i {
-				color: $green;
-			}
-		}
-	}
-}

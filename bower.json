@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "ember-animated-outlet": "~1.0.0-beta",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "hammerjs": "~1.0.10",
+    "jquery-hammerjs": "~1.0.6"
   }
 }
