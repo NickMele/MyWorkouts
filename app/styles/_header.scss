@@ -19,15 +19,15 @@
 	display: flex;
 	padding: modular-scale(0, $base-size);
 	background: $gray-light;
-	align-items: center;
+	align-items: flex-start;
 	position: relative;
 	z-index: 1;
 	text-shadow: 0 0 .2rem $base-shadow-color;
 
 	.title {
 		flex: 1;
-		overflow: hidden;
-		white-space: nowrap;
+		// overflow: hidden;
+		// white-space: nowrap;
 		box-sizing: border-box;
 		transition: all .2s ease-in;
 		font-size: modular-scale(1, $base-size);

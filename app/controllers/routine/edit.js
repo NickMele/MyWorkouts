@@ -10,6 +10,8 @@ export default Ember.ObjectController.extend({
     removeWorkout: function(workout) {
       var workouts = this.get('workouts');
       workouts.removeObject(workout);
+      console.log('here');
+      return false;
     },
     search: function(term, context) {
       var self = this,

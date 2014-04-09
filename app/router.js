@@ -1,4 +1,8 @@
-var Router = Ember.Router.extend(); // ensure we don't share routes between all Router instances
+var Router = Ember.Router.extend({
+  closeMenuOnUrlChange: function() {
+    this.send('closeMenu');
+  }.on('didTransition')
+});
 
 Router.map(function() {
 	this.resource('styles');

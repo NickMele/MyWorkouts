@@ -9,6 +9,7 @@ body {
 	font-size: $base-size;
 	margin: 0;
 	padding: 0;
+  padding-bottom: modular-scale(3,$base-size);
 }
 
 a {

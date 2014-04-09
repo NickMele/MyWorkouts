@@ -9,13 +9,6 @@ export default Ember.CollectionView.extend({
     
     selected: false,
     
-    didInsertElement: function() {
-      var self = this;
-      self.$().hammer().on('tap',function() {
-        self.select();
-      });
-    },
-    
     toggleSelected: function() {
       var days = this.get('controller.days'),
           day = this.get('content');
@@ -30,11 +23,12 @@ export default Ember.CollectionView.extend({
         return moment().weekday(day).format('dddd');
     }.property(),
 
-    select: function() {
+    click: function() {
       var day = this.get('content'),
           selected = this.get('selected');
     
       this.get('controller').send('toggleDay', day, selected);
+      
     }
 
   })

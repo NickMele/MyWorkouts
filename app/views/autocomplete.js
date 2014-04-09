@@ -74,13 +74,23 @@ export default Ember.ContainerView.extend({
         if (parentView) {
           parentView.trigger('select', content);
         }
-      },
-      
-      touchStart: function() {
-        this.click();
       }
     })
   }),
+  
+  scrollIntoView: function() {
+    Ember.run.later(this, function() {
+      var $autocomplete = this.$()
+        , offset = $autocomplete.offset();
+      
+      // give some space
+      offset.top -= 25;
+      
+      $('html body').animate({
+        scrollTop: offset.top
+      });
+    },250);
+  },
 
   keyDown: function(e) {
     var map = this.key_events,
@@ -94,10 +104,11 @@ export default Ember.ContainerView.extend({
 
   focusIn: function() {
     this.show();
+    this.scrollIntoView();
   },
 
   focusOut: function() {
-    // setTimeout(Ember.$.proxy(this, 'hide'), 200);
+    setTimeout(Ember.$.proxy(this, 'hide'), 200);
   },
 
   select: function(value) {

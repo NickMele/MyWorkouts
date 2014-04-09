@@ -8,6 +8,17 @@ export default Ember.Route.extend({
   
   model: function(params) {
     return this.modelFor('routine');
+  },
+  
+  actions: {
+    cancel: function() {
+      var model = this.controller.get('model');
+      if (model) {
+        this.transitionTo('routine', model);
+      } else {
+        this.transitionTo('routines');
+      }
+    }
   }
   
 });

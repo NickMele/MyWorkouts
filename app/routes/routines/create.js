@@ -12,5 +12,18 @@ export default Ember.Route.extend({
   
   renderTemplate: function() {
     this.render('routine.edit',{controller:'routines.create'})
+  },
+  
+  actions: {
+    cancel: function() {
+      this.transitionTo('routines')
+    },
+    willTransition: function(transition) {
+      var controller = this.controller
+        , model = controller.get('model');
+      
+      model.destroyRecord();
+      return true;
+    }
   }
 });
