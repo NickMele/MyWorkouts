@@ -74,7 +74,7 @@ module.exports = function(app) {
       async.waterfall([
         helpers.routines.deleteRoutine(req,res,data)
       ], function(error) {
-        res.send(data);
+        res.send(200, {});
       });
       
     }

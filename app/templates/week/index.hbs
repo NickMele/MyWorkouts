@@ -3,7 +3,13 @@
     <li>
       {{#link-to "week.day" day class=day.status}}
         <div class="day-info">
-          <div class="day">{{format-date day.date format="dddd"}}</div>
+          <div class="day">
+            {{#if day.current}}
+              Today
+            {{else}}
+              {{format-date day.date format="dddd"}}
+            {{/if}}
+          </div>
           <div class="routines">
             {{#if day.totalRoutines}}
               {{day.totalRoutines}} Routines
@@ -16,6 +22,7 @@
             {{/if}}
           </div>
         </div>
+        <i class="fa fa-lg fa-angle-right"></i>
       {{/link-to}}
     </li>
   {{/each}}

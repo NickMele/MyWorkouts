@@ -4,6 +4,13 @@ Ember.LinkView.reopen({
   eventName: 'tap'
 })
 
+Ember.Route.reopen({
+  setupController: function(controller, model) {
+    this._super(controller,model);
+    this.controllerFor('history').pushObject(this.get('routeName'));
+  }
+});
+
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION: true,
   LOG_MODULE_RESOLVER: true,

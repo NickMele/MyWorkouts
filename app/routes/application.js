@@ -7,6 +7,9 @@ export default Ember.Route.extend({
 		},
     closeMenu: function() {
       this.controller.set('menuOpen', false);
+    },
+    openMenu: function() {
+      this.controller.set('menuOpen', true);
     }
 	}
 

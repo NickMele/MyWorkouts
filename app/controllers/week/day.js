@@ -22,6 +22,11 @@ export default Ember.ObjectController.extend({
     // }
   }.observes('log.completed').on('init'),
   
+  //-- set current flag
+  current: function() {
+    return (this.get('status') === 'current');
+  }.property('status'),
+  
   //-- determine total number of routines
   totalRoutines: function() {
     return this.get('routines.length');

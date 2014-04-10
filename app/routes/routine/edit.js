@@ -11,13 +11,12 @@ export default Ember.Route.extend({
   },
   
   actions: {
-    cancel: function() {
-      var model = this.controller.get('model');
-      if (model) {
-        this.transitionTo('routine', model);
-      } else {
-        this.transitionTo('routines');
-      }
+    willTransition: function(transition) {
+      var controller = this.controller
+        , model = controller.get('model');
+      model.reload().then(function() {
+        return true;
+      });
     }
   }
   

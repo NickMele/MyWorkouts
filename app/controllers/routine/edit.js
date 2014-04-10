@@ -1,5 +1,16 @@
 export default Ember.ObjectController.extend({
+  needs: ['history'],
+  
   actions: {
+    cancel: function() {
+      var model = this.get('model');
+      if (model) {
+        this.transitionToRoute('routine', model);
+      } else {
+        this.transitionToRoute('routines');
+      }
+    },
+    
     addWorkout: function(workout) {
       var workouts = this.get('workouts');
       if (workouts.contains(workout)) {
@@ -7,29 +18,32 @@ export default Ember.ObjectController.extend({
       }
       workouts.pushObject(workout);
     },
+    
     removeWorkout: function(workout) {
       var workouts = this.get('workouts');
       workouts.removeObject(workout);
       console.log('here');
       return false;
     },
+    
     search: function(term, context) {
       var self = this,
           workouts = self.store.find('workout', { name: term });
       workouts.then(function(workouts) {
-        var newWorkout = self.store.createRecord('workout', { name: term });
-        workouts.insertAt(0, newWorkout);
         context.set('content', workouts);
       });      
     },
+    
     toggleDay: function(day, selected) {
-      var days = this.get('days');
+      var days = this.get('model.days');
+      console.log(days);
       if (!selected) {
         days.pushObject(day);
       } else {
         days.removeObject(day);
       }
     },
+    
     saveRoutine: function() {
       var self = this
         , routine = this.get('model')

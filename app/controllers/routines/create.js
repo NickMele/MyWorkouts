@@ -2,6 +2,10 @@ export default Ember.ObjectController.extend({
   // needs: ['autocomplete'],
   
   actions: {
+    cancel: function() {
+      this.transitionToRoute('routines')
+    },
+    
     addWorkout: function(workout) {
       var workouts = this.get('workouts');
       if (workouts.contains(workout)) {
@@ -9,10 +13,12 @@ export default Ember.ObjectController.extend({
       }
       workouts.pushObject(workout);
     },
+    
     removeWorkout: function(workout) {
       var workouts = this.get('workouts');
       workouts.removeObject(workout);
     },
+    
     search: function(term, context) {
       var self = this,
           workouts = self.store.find('workout', { name: term });
@@ -22,6 +28,7 @@ export default Ember.ObjectController.extend({
         context.set('content', workouts);
       });      
     },
+    
     toggleDay: function(day, selected) {
       var days = this.get('days');
       if (!selected) {
@@ -30,6 +37,7 @@ export default Ember.ObjectController.extend({
         days.removeObject(day);
       }
     },
+    
     saveRoutine: function() {
       var self = this
         , routine = this.get('model')
@@ -37,7 +45,7 @@ export default Ember.ObjectController.extend({
 
       workouts.save().then(function() {
         routine.save().then(function(routine) {
-          self.store.find('week')
+          self.store.find('week');
           self.transitionToRoute('routine', routine);
         });
       });

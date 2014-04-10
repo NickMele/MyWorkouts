@@ -15,14 +15,13 @@ export default Ember.Route.extend({
   },
   
   actions: {
-    cancel: function() {
-      this.transitionTo('routines')
-    },
     willTransition: function(transition) {
       var controller = this.controller
         , model = controller.get('model');
-      
-      model.destroyRecord();
+      if (model.get('isNew')) {
+        console.log('sdfdf');
+        model.destroyRecord();
+      }
       return true;
     }
   }

@@ -47,7 +47,7 @@ export default Ember.ContainerView.extend({
 
   dropdownView: Ember.CollectionView.extend({
     classNames: 'suggestions',
-    tagName: 'div',
+    tagName: 'ul',
 
     contentBinding: 'parentView.content',
     selectedBinding: 'parentView.selected',
@@ -56,7 +56,7 @@ export default Ember.ContainerView.extend({
     emptyViewBinding: 'parentView.emptyView',
 
     itemViewClass: Ember.View.extend({
-      tagName: 'a',
+      tagName: 'li',
       templateBinding: 'parentView.template',
       classNameBindings: [':suggestion','selected'],
 
